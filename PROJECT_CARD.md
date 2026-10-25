@@ -1,16 +1,28 @@
 # PROJECT_CARD.md
 
-- **Track Selection:** Track A (NYC TLC - Structured / Time-Series)
-- **Working Project Title:** Hourly Taxi Demand Forecasting and Congestion Pricing Impact Analysis in NYC (2025)
-- **Problem Statement & Decision Context:** Predicting hourly trip demand per taxi zone and analyzing fare structures (including the new 2025 CBD congestion fee) to optimize fleet positioning and operational efficiency.
-- **Dataset Subset:** NYC Yellow Taxi Trip Records (Full Year 2025)
-- **Unit of Analysis:** `(Taxi Zone ID, Hour Time-Window)` for demand forecasting; individual trip level for fare/duration analysis.
-- **Unit of Prediction:** Total number of trip originations (count) per zone and hour.
-- **Target Variables & Metrics:** 
-  - Primary Target: Hourly trip count per zone.
+- **1. Track Selection & Data Subset:** 
+  - Track: Track A (NYC TLC - Structured / Time-Series)
+  - Dataset Subset: NYC Yellow Taxi Trip Records (Full Calendar Year 2025: January 1 – December 31, 2025, stored locally as Parquet files queried via DuckDB)
+
+- **2. Working Project Title:** 
+  Hourly Taxi Demand Forecasting and Congestion Pricing Impact Analysis in NYC (2025)
+
+- **3. Problem Statement & Real-World Decision Context:** 
+  Assisting fleet managers and operators in pre-positioning vehicles across NYC taxi zones to minimize passenger wait times, optimize driver resource allocation, and analyze the operational and financial impact of the newly introduced 2025 Central Business District (CBD) congestion fee.
+
+- **4. Unit of Analysis & Unit of Prediction:** 
+  - Unit of Analysis: `(Taxi Zone ID, Hour Time-Window)`
+  - Unit of Prediction: Total number of trip originations (integer count) in a given taxi zone and hour window.
+
+- **5. Target Population & Scope:** 
+  All valid Yellow Taxi trip records originating across official NYC TLC taxi zones during the year 2025, excluding corrupted records (e.g., negative/zero trip distances, invalid timestamps, or negative fares identified during the data quality audit).
+
+- **6. Main Analytical / Prediction Question:** 
+  How accurately can we forecast hourly taxi demand per zone using cyclical temporal encodings, spatial features, and CBD congestion pricing indicators under a strict temporal split, and how do simple baselines compare against non-linear gradient-boosted ensemble models?
+
+- **7. Target Variables, Metrics & Validation Design:** 
+  - Primary Target Variable: Hourly trip count (`trip_count`) per zone and hour.
   - Evaluation Metrics: Root Mean Squared Error (RMSE) and Mean Absolute Error (MAE).
-- **Initial Split Logic:** Strict temporal split (e.g., training on January–September 2025, validating/testing on October–December 2025) to prevent time-based data leakage[cite: 1].
-- **Planned Baseline Models:** 
-  - Simple Baseline: Historical rolling mean (same hour, same zone, same day-of-week).
-  - Non-Linear Baseline: LightGBM / XGBoost with cyclical time features, spatial lags, and CBD congestion fee indicators.
-- **Data Leakage Risks:** Using global temporal aggregates or random train-test splitting that mixes past and future traffic patterns.
+  - Validation / Split Logic: Strict temporal split (e.g., training on January–September 2025, validating/testing on October–December 2025) to prevent future data leakage and realistically simulate production forecasting.
+  - Planned Baseline Models: Historical rolling mean (same hour, same zone, same day-of-week) vs. Non-Linear Models (LightGBM / XGBoost).
+  - Data Leakage Risks: Avoiding global temporal aggregations and random train-test splitting that mixes past and future traffic patterns.
