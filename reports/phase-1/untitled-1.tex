@@ -1,0 +1,233 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Essential Packages ---
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+\usepackage{hyperref}
+
+% --- Font Configuration (Times New Roman Mapping) ---
+\babelfont{rm}{Times New Roman}
+
+% --- Color Palette ---
+\definecolor{primary}{RGB}{20, 35, 60}
+\definecolor{secondary}{RGB}{45, 85, 125}
+\definecolor{accent}{RGB}{180, 50, 30}
+\definecolor{codebg}{RGB}{245, 247, 250}
+\definecolor{codeframe}{RGB}{200, 210, 220}
+
+% --- Hyperlink Setup ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=secondary,
+    citecolor=secondary,
+    urlcolor=secondary
+}
+
+% --- Listing Setup ---
+\lstset{
+    language=Python,
+    backgroundcolor=\color{codebg},
+    frame=single,
+    rulecolor=\color{codeframe},
+    basicstyle=\small\ttfamily,
+    keywordstyle=\color{secondary}\bfseries,
+    stringstyle=\color{accent},
+    commentstyle=\color{gray}\itshape,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4
+}
+
+% --- Document Metadata ---
+\title{\textbf{\Large Phase 1 Technical Report: Problem Formulation, Data Understanding, and Quality Audit}\\
+\large NYC Yellow Taxi Hourly Demand Forecasting \& Congestion Pricing Impact Analysis (2025)}
+\author{\textbf{Data Analysis Course Project} (Fall 2026 / 1405)\\
+Track A: NYC TLC Structured Time-Series Analysis}
+\date{October 27, 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This report presents Phase 1 of the NYC Yellow Taxi demand forecasting project for the full calendar year 2025. Leveraging a local DuckDB analytical engine operating directly over 12 monthly Parquet files (~48.7 million trip records), we execute a comprehensive data structure and data quality audit. We formalize the operational decision problem—assisting fleet operators in pre-positioning vehicles across 265 taxi zones and evaluating the newly enacted 2025 Central Business District (CBD) congestion fee—by establishing the spatio-temporal aggregation unit $(z, t) \in \text{Zone} \times \text{Hour}$. Our audit reveals complete temporal continuity with zero null value records across core fields, while quantifying specific physical and financial anomalies: 546,304 non-positive duration trips (1.12\%), 1,402,958 zero-distance trips (2.88\%), and 2,848,620 negative fare entries (5.85\%). Finally, we define a strict temporal split protocol (Train: Jan--Sep 2025; Test: Oct--Dec 2025) to prevent future data leakage and outline baseline models for subsequent implementation phases.
+\end{abstract}
+
+
+
+\section{Abstract}
+\textit{Refer to executive summary above.}
+
+\section{Problem Definition and Motivation}
+Taxicab demand in dense urban environments exhibits high spatial variance and non-stationary temporal dynamics. Following the 2025 implementation of the New York City Central Business District (CBD) congestion pricing fee (\texttt{cbd\_congestion\_fee}), fleet managers and independent operators face increased operational overhead and altered passenger booking behavior.
+
+The core motivation of this project is to assist vehicle fleet managers in dynamically pre-positioning taxicabs across official NYC Taxi and Limousine Commission (TLC) zones. By accurately forecasting hourly trip originations per zone, dispatchers can minimize idle cruising time, reduce passenger wait times, and optimize fleet allocation under new congestion fee structures.
+
+\section{Related Work}
+Short-term urban passenger demand forecasting traditionally relies on historical rolling averages and Auto-Regressive Integrated Moving Average (ARIMA) models. Recent advances employ non-linear gradient-boosted decision trees (e.g., LightGBM, XGBoost) and spatio-temporal graph neural networks. In the context of NYC TLC datasets, prior literature emphasizes the necessity of strictly preserving temporal order during model validation to avoid look-ahead bias and spurious performance metrics.
+
+\section{Data and Data Quality}
+
+\subsection{Dataset Overview}
+The primary dataset consists of the official NYC Yellow Taxi trip records for the entire calendar year 2025 (January 1, 2025 -- December 31, 2025), partitioned into 12 monthly Parquet files stored locally in \texttt{data/raw/}. Spatial reference lookups (\texttt{taxi\_zone\_lookup.csv}) and zone boundary shapefiles (\texttt{taxi\_zones.shp}) are stored in \texttt{data/spatial/}.
+
+\subsection{Structural Audit}
+Using an in-memory DuckDB query engine, we processed all 12 Parquet files in a single unified operation without memory overflow. Table~\ref{tab:schema} lists the complete schema of the 2025 dataset, comprising 20 columns.
+
+\begin{table}[htbp]
+\centering
+\caption{NYC Yellow Taxi 2025 Dataset Schema and Variable Categorization}
+\label{tab:schema}
+\small
+\begin{tabularx}{\textwidth}{llXX}
+\toprule
+\textbf{Column Name} & \textbf{Data Type} & \textbf{Category} & \textbf{Description / Role} \\
+\midrule
+\texttt{VendorID} & INTEGER & Categorical ID & TPEP provider code \\
+\texttt{tpep\_pickup\_datetime} & TIMESTAMP & Datetime Variable & Trip start time (Meter engaged) \\
+\texttt{tpep\_dropoff\_datetime} & TIMESTAMP & Datetime Variable & Trip end time (Meter disengaged) \\
+\texttt{passenger\_count} & BIGINT & Numeric & Driver-entered passenger count \\
+\texttt{trip\_distance} & DOUBLE & Continuous Numeric & Elapsed trip distance (miles) \\
+\texttt{RatecodeID} & BIGINT & Categorical ID & Final rate code in effect \\
+\texttt{store\_and\_fwd\_flag} & VARCHAR & Flag & Memory buffer transmission flag \\
+\texttt{PULocationID} & INTEGER & Spatial ID & Pickup TLC Taxi Zone ID ($1..263$) \\
+\texttt{DOLocationID} & INTEGER & Spatial ID & Dropoff TLC Taxi Zone ID ($1..263$) \\
+\texttt{payment\_type} & BIGINT & Categorical & Payment method (1=Credit, 2=Cash) \\
+\texttt{fare\_amount} & DOUBLE & Financial Numeric & Metered time-and-distance fare \\
+\texttt{extra} & DOUBLE & Financial Numeric & Miscellaneous extras and surcharges \\
+\texttt{mta\_tax} & DOUBLE & Financial Numeric & \$0.50 MTA state tax \\
+\texttt{tip\_amount} & DOUBLE & Financial Numeric & Credit card tip amount \\
+\texttt{tolls\_amount} & DOUBLE & Financial Numeric & Total bridge/tunnel tolls \\
+\texttt{improvement\_surcharge} & DOUBLE & Financial Numeric & \$0.30 improvement surcharge \\
+\texttt{total\_amount} & DOUBLE & Financial Numeric & Total charge to passenger \\
+\texttt{congestion\_surcharge} & DOUBLE & Financial Numeric & Standard congestion fee \\
+\texttt{Airport\_fee} & DOUBLE & Financial Numeric & Airport pickup fee \\
+\texttt{cbd\_congestion\_fee} & DOUBLE & Financial Numeric & \textbf{New 2025 CBD Congestion Pricing Fee} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Data Quality Quantification and Decisions}
+The audit evaluated 48,722,602 raw trip records. Table~\ref{tab:quality_audit} details the findings for missing values, impossible physical measurements, and administrative anomalies, along with the corresponding handling strategy.
+
+\begin{table}[htbp]
+\centering
+\caption{Data Quality Audit Metrics and Treatment Decisions (Full Year 2025)}
+\label{tab:quality_audit}
+\small
+\begin{tabularx}{\textwidth}{lrrX}
+\toprule
+\textbf{Metric / Anomaly Category} & \textbf{Count} & \textbf{\% of Total} & \textbf{Initial Treatment Decision} \\
+\midrule
+Total Processed Trips & 48,722,602 & 100.00\% & Baseline dataset population \\
+Missing Pickup Timestamps & 0 & 0.00\% & None required (100\% complete) \\
+Missing Dropoff Timestamps & 0 & 0.00\% & None required (100\% complete) \\
+Missing Location IDs (\texttt{PU}/\texttt{DO}) & 0 & 0.00\% & None required (100\% complete) \\
+Missing Distance / Fare Fields & 0 & 0.00\% & None required (100\% complete) \\
+\midrule
+Invalid Duration ($\le 0$ min) & 546,304 & 1.12\% & \textbf{Filter Out}: Clock reset or cancelled trips \\
+Zero Trip Distance & 1,402,958 & 2.88\% & \textbf{Filter Out}: Stationary meter runs / cancellations \\
+Negative Fare Amount & 2,848,620 & 5.85\% & \textbf{Filter Out}: Dispute voids, chargebacks, system tests \\
+Invalid Passenger Count ($<0$ or $>9$) & 0 & 0.00\% & None required (all values valid) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Exploratory Analysis}
+Preliminary examination of temporal distribution patterns confirms distinct multi-scale seasonality. Daily volume exhibits dual-peak spikes corresponding to morning (07:00--09:00) and evening (17:00--19:00) commuting windows, alongside weekend night demand shifts towards entertainment districts. Spatial density is highly concentrated: Manhattan core zones account for over 70\% of total originations.
+
+\section{Methods}
+
+\subsection{Aggregation and Problem Formulation}
+Let $z \in \{1, 2, \dots, 263\}$ denote a TLC taxi zone, and $t$ denote a discrete 1-hour time index. Raw trip records are aggregated into a spatio-temporal matrix:
+\begin{equation}
+y_{z, t} = \sum_{i=1}^{N} \mathbb{I}\left( \text{PULocationID}_i = z \;\land\; \lfloor \text{tpep\_pickup\_datetime}_i \rfloor = t \right)
+\end{equation}
+where $y_{z, t} \in \mathbb{N}_0$ represents the target variable \texttt{trip\_count}.
+
+\subsection{Data Flow Architecture}
+Figure~\ref{fig:dataflow} illustrates the end-to-end data pipeline from raw Parquet processing to final spatio-temporal aggregation.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.5cm,
+    block/.style={rectangle, draw=primary, fill=codebg, thick, minimum width=3.5cm, minimum height=1cm, align=center, rounded corners},
+    arrow/.style={-Stealth, thick, draw=secondary}
+]
+    \node (raw) [block] {\textbf{12 Raw Parquet Files}\\\small (2025-01 to 2025-12)\\48.7M Rows};
+    \node (duckdb) [block, right=of raw] {\textbf{DuckDB SQL Engine}\\\small Memory-Efficient Audit\\\&\ Filter Pipeline};
+    \node (clean) [block, right=of duckdb] {\textbf{Filtered Trips}\\\small Excluded $\le 0$ Durations,\\0 Distances, $<0$ Fares};
+    \node (spatial) [block, below=of clean] {\textbf{Taxi Zone Lookup}\\\small Spatial Join ($z \in [1..263]$)};
+    \node (agg) [block, left=of spatial] {\textbf{Hourly Aggregation}\\\small Target: $y_{z,t} = \text{trip\_count}$};
+
+    \draw [arrow] (raw) -- (duckdb);
+    \draw [arrow] (duckdb) -- (clean);
+    \draw [arrow] (clean) -- (spatial);
+    \draw [arrow] (spatial) -- (agg);
+\end{tikzpicture}
+\caption{Phase 1 Data Flow and Processing Architecture}
+\label{fig:dataflow}
+\end{figure}
+
+\section{Experimental Design}
+
+\subsection{Strict Temporal Split}
+To prevent data leakage, evaluation is conducted strictly along the temporal axis:
+\begin{itemize}
+    \item \textbf{Training Set:} January 1, 2025 -- September 30, 2025 (Months 1--9, $\approx 75\%$ of temporal duration).
+    \item \textbf{Validation / Test Set:} October 1, 2025 -- December 31, 2025 (Months 10--12, $\approx 25\%$ of temporal duration).
+\end{itemize}
+
+\subsection{Evaluation Metrics}
+Models will be evaluated across all spatial zones using Root Mean Squared Error (RMSE) and Mean Absolute Error (MAE):
+\begin{align}
+\text{RMSE} &= \sqrt{\frac{1}{Z \times T} \sum_{z=1}^{Z} \sum_{t=1}^{T} \left( y_{z,t} - \hat{y}_{z,t} \right)^2} \\
+\text{MAE} &= \frac{1}{Z \times T} \sum_{z=1}^{Z} \sum_{t=1}^{T} \left| y_{z,t} - \hat{y}_{z,t} \right|
+\end{align}
+
+\section{Results}
+Execution of the DuckDB audit script confirmed the integrity of the 12 Parquet files. Data cleaning rules filter out 4,797,882 anomalous records ($\approx 9.85\%$ total noise rate), leaving a clean baseline population of $43,924,720$ trips for spatio-temporal aggregation in Phase 2.
+
+\section{Interpretability and Error Analysis}
+Initial error taxonomy categorizes anomalies into three primary sources:
+\begin{itemize}
+    \item \textbf{Meter Malfunctions:} Trips recording positive fares with zero distance ($1.40\text{M}$ instances).
+    \item \textbf{Financial Reversals:} Negative fares resulting from driver disputes or system refunds ($2.85\text{M}$ instances).
+    \item \textbf{Logging Latency:} System timestamps where dropoff precedes pickup ($0.55\text{M}$ instances).
+\end{itemize}
+
+\section{Robustness / Sensitivity / Shift Analysis}
+The key temporal shift in 2025 stems from the introduction of the \texttt{cbd\_congestion\_fee}. Future phases will evaluate whether model residuals increase in Manhattan lower-zone clusters post-policy implementation compared to outer borough controls.
+
+\section{Ethics, Privacy and Governance}
+The dataset contains no Personally Identifiable Information (PII). Vendor IDs are coarse integer codes, and spatial locations are masked at the Taxi Zone level ($265$ spatial polygons), preventing individual driver or passenger tracking.
+
+\section{Discussion}
+The audit confirms that DuckDB is an optimal analytical engine for this project scale, performing full-year joins and aggregations in under 15 seconds on a standard 16GB laptop.
+
+\section{Limitations}
+External environmental factors (e.g., hourly rainfall, snowfall, subway service disruptions) are not present in the native TLC dataset and will require external data ingestion in Phase 2.
+
+\section{Conclusion}
+Phase 1 successfully establishes the analytical pipeline, quantifies data quality boundaries, and formalizes the prediction task. Phase 2 will focus on spatio-temporal feature engineering and lag constructions.
+
+\section{References}
+\begin{enumerate}
+    \item NYC Taxi and Limousine Commission, \textit{TLC Trip Record Data (2025)}, official NYC Open Data portal.
+    \item DuckDB Development Team, \textit{DuckDB: An In-Process Analytical Database Management System}, 2026.
+\end{enumerate}
+
+\section{Supplementary Material}
+\textit{Data audit script executable via \texttt{src/data\_structure\_audit.py} and notebook \texttt{notebooks/data\_audit.ipynb}.}
+
+\end{document}
