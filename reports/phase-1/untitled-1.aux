@@ -11,27 +11,97 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4}Data and Data Quality}{2}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Dataset Overview}{2}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Structural Audit}{2}{subsection.4.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces NYC Yellow Taxi 2025 Dataset Schema and Variable Categorization}}{2}{table.1}\protected@file@percent }
-\newlabel{tab:schema}{{1}{2}{NYC Yellow Taxi 2025 Dataset Schema and Variable Categorization}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces NYC Yellow Taxi 2025 Dataset Schema and Variable Categorization}}{2}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:schema}{{1}{2}{NYC Yellow Taxi 2025 Dataset Schema and Variable Categorization}{table.caption.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Data Quality Quantification and Decisions}{2}{subsection.4.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Data Quality Audit Metrics and Treatment Decisions (Full Year 2025)}}{3}{table.2}\protected@file@percent }
-\newlabel{tab:quality_audit}{{2}{3}{Data Quality Audit Metrics and Treatment Decisions (Full Year 2025)}{table.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Exploratory Analysis}{3}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Methods}{3}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Aggregation and Problem Formulation}{3}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Data Flow Architecture}{3}{subsection.6.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Phase 1 Data Flow and Processing Architecture}}{3}{figure.1}\protected@file@percent }
-\newlabel{fig:dataflow}{{1}{3}{Phase 1 Data Flow and Processing Architecture}{figure.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Experimental Design}{4}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Strict Temporal Split}{4}{subsection.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Evaluation Metrics}{4}{subsection.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Results}{4}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Interpretability and Error Analysis}{4}{section.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {10}Robustness / Sensitivity / Shift Analysis}{4}{section.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {11}Ethics, Privacy and Governance}{4}{section.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {12}Discussion}{5}{section.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {13}Limitations}{5}{section.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {14}Conclusion}{5}{section.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {15}References}{5}{section.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {16}Supplementary Material}{5}{section.16}\protected@file@percent }
-\gdef \@abspage@last{5}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Data Quality Audit Metrics and Treatment Decisions (Full Year 2025)}}{3}{table.caption.2}\protected@file@percent }
+\newlabel{tab:quality_audit}{{2}{3}{Data Quality Audit Metrics and Treatment Decisions (Full Year 2025)}{table.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Rationale for Data Quality Treatment Decisions}{3}{subsection.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Exploratory Data Analysis (EDA)}{4}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Temporal Distributions and Time Audit}{4}{subsection.5.1}\protected@file@percent }
+\newlabel{fig:hourly}{{1a}{4}{Hourly Trip Distribution}{figure.caption.3}{}}
+\newlabel{sub@fig:hourly}{{a}{4}{Hourly Trip Distribution}{figure.caption.3}{}}
+\newlabel{fig:dow}{{1b}{4}{Day of Week Distribution}{figure.caption.3}{}}
+\newlabel{sub@fig:dow}{{b}{4}{Day of Week Distribution}{figure.caption.3}{}}
+\newlabel{fig:monthly}{{1c}{4}{Monthly Trip Volume}{figure.caption.3}{}}
+\newlabel{sub@fig:monthly}{{c}{4}{Monthly Trip Volume}{figure.caption.3}{}}
+\newlabel{fig:daily}{{1d}{4}{Daily Time Series}{figure.caption.3}{}}
+\newlabel{sub@fig:daily}{{d}{4}{Daily Time Series}{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Temporal Distribution and Time Series Analysis of NYC Yellow Taxi Trips (2025)}}{4}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:temporal_grid}{{1}{4}{Temporal Distribution and Time Series Analysis of NYC Yellow Taxi Trips (2025)}{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Exploratory Data Analysis: Trip Distance}{5}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:eda_trip_distance}{{5.2}{5}{Exploratory Data Analysis: Trip Distance}{subsection.5.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Descriptive Statistics for Trip Distance (2025 Dataset)}}{5}{table.caption.4}\protected@file@percent }
+\newlabel{tab:stats_trip_distance}{{3}{5}{Descriptive Statistics for Trip Distance (2025 Dataset)}{table.caption.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Statistical Characteristics and Shape}{5}{subsubsection.5.2.1}\protected@file@percent }
+\newlabel{fig:trip_distance_dist}{{2a}{5}{Probability Density Distribution}{figure.caption.5}{}}
+\newlabel{sub@fig:trip_distance_dist}{{a}{5}{Probability Density Distribution}{figure.caption.5}{}}
+\newlabel{fig:trip_distance_box}{{2b}{5}{Box Plot (Capped at 30 Miles)}{figure.caption.5}{}}
+\newlabel{sub@fig:trip_distance_box}{{b}{5}{Box Plot (Capped at 30 Miles)}{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution and Box Plot Analysis for Trip Distance (2025)}}{5}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:trip_distance_analysis}{{2}{5}{Distribution and Box Plot Analysis for Trip Distance (2025)}{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Justification for Retaining Outliers Beyond the 1.5$\times $IQR Rule}{5}{subsubsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Exploratory Data Analysis: Fare Amount}{6}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:eda_fare_amount}{{5.3}{6}{Exploratory Data Analysis: Fare Amount}{subsection.5.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Descriptive Statistics for Fare Amount (2025 Dataset)}}{6}{table.caption.6}\protected@file@percent }
+\newlabel{tab:stats_fare_amount}{{4}{6}{Descriptive Statistics for Fare Amount (2025 Dataset)}{table.caption.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Statistical Characteristics and Shape}{6}{subsubsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Justification for Retaining Outliers Beyond the 1.5$\times $IQR Rule}{6}{subsubsection.5.3.2}\protected@file@percent }
+\newlabel{fig:fare_amount_dist}{{3a}{7}{Probability Density Distribution}{figure.caption.7}{}}
+\newlabel{sub@fig:fare_amount_dist}{{a}{7}{Probability Density Distribution}{figure.caption.7}{}}
+\newlabel{fig:fare_amount_box}{{3b}{7}{Box Plot (Capped at \$100)}{figure.caption.7}{}}
+\newlabel{sub@fig:fare_amount_box}{{b}{7}{Box Plot (Capped at \$100)}{figure.caption.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Distribution and Box Plot Analysis for Fare Amount (2025)}}{7}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:fare_amount_analysis}{{3}{7}{Distribution and Box Plot Analysis for Fare Amount (2025)}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Exploratory Data Analysis: Central Business District Congestion Fee}{7}{subsection.5.4}\protected@file@percent }
+\newlabel{sec:eda_cbd_congestion_fee}{{5.4}{7}{Exploratory Data Analysis: Central Business District Congestion Fee}{subsection.5.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Descriptive Statistics for CBD Congestion Fee (2025 Dataset)}}{7}{table.caption.8}\protected@file@percent }
+\newlabel{tab:stats_cbd_congestion_fee}{{5}{7}{Descriptive Statistics for CBD Congestion Fee (2025 Dataset)}{table.caption.8}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1}Statistical Characteristics and Regulatory Structure}{7}{subsubsection.5.4.1}\protected@file@percent }
+\newlabel{fig:cbd_congestion_fee_dist}{{4a}{8}{Frequency Distribution across Fee Tiers}{figure.caption.9}{}}
+\newlabel{sub@fig:cbd_congestion_fee_dist}{{a}{8}{Frequency Distribution across Fee Tiers}{figure.caption.9}{}}
+\newlabel{fig:cbd_congestion_fee_box}{{4b}{8}{Box Plot for Discrete Policy Levels}{figure.caption.9}{}}
+\newlabel{sub@fig:cbd_congestion_fee_box}{{b}{8}{Box Plot for Discrete Policy Levels}{figure.caption.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Distribution and Box Plot Analysis for CBD Congestion Fee (2025)}}{8}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:cbd_congestion_fee_analysis}{{4}{8}{Distribution and Box Plot Analysis for CBD Congestion Fee (2025)}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}Data Integrity and Analytical Interpretation}{8}{subsubsection.5.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Spatial Distribution and Zone-Level Concentration}{8}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Univariate and Multivariate Relationships}{8}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Methods}{9}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Aggregation and Problem Formulation}{9}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Data Flow Architecture}{9}{subsection.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Phase 1 Data Flow and Processing Architecture}}{9}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:dataflow}{{5}{9}{Phase 1 Data Flow and Processing Architecture}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Experimental Design}{9}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Strict Temporal Split}{9}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Evaluation Metrics}{9}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Results}{10}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Interpretability and Error Analysis}{10}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Robustness / Sensitivity / Shift Analysis}{10}{section.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Ethics, Privacy and Governance}{10}{section.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {12}Discussion}{10}{section.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {13}Limitations}{10}{section.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {14}Conclusion}{10}{section.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {15}References}{10}{section.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {16}Supplementary Material}{11}{section.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {16.1}Spatial Distribution and Zone-Level Concentration}{11}{subsection.16.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {16.2}Univariate and Multivariate Relationships}{11}{subsection.16.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {17}Methods}{11}{section.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {17.1}Aggregation and Problem Formulation}{11}{subsection.17.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {17.2}Data Flow Architecture}{11}{subsection.17.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Phase 1 Data Flow and Processing Architecture}}{11}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:dataflow}{{6}{11}{Phase 1 Data Flow and Processing Architecture}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {18}Experimental Design}{11}{section.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {18.1}Strict Temporal Split}{11}{subsection.18.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {18.2}Evaluation Metrics}{12}{subsection.18.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {19}Results}{12}{section.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {20}Interpretability and Error Analysis}{12}{section.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {21}Robustness / Sensitivity / Shift Analysis}{12}{section.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {22}Ethics, Privacy and Governance}{12}{section.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {23}Discussion}{12}{section.23}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {24}Limitations}{13}{section.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {25}Conclusion}{13}{section.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {26}References}{13}{section.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {27}Supplementary Material}{13}{section.27}\protected@file@percent }
+\gdef \@abspage@last{13}
