@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.15)  28 OCT 2026 13:23
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.15)  29 OCT 2026 19:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -975,31 +975,102 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 ]
-Underfull \hbox (badness 3942) in paragraph at lines 117--117
+Underfull \hbox (badness 3942) in paragraph at lines 112--112
 []|\TU/TimesNewRoman(0)/m/n/10 Trip start time (Meter en-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--117
+Underfull \hbox (badness 10000) in paragraph at lines 112--112
 []|\TU/TimesNewRoman(0)/m/n/10 Driver-entered passenger
  []
 
 
-Underfull \hbox (badness 1953) in paragraph at lines 117--117
+Underfull \hbox (badness 1953) in paragraph at lines 112--112
 []|\TU/TimesNewRoman(0)/m/n/10 Pickup TLC Taxi Zone ID
  []
 
 
-Underfull \hbox (badness 2600) in paragraph at lines 117--117
+Underfull \hbox (badness 2600) in paragraph at lines 112--112
 []|\TU/TimesNewRoman(0)/m/n/10 Payment method (1=Credit,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--117
+Underfull \hbox (badness 10000) in paragraph at lines 112--112
 []|\TU/TimesNewRoman(0)/m/n/10 Metered time-and-distance
  []
 
-[2] [3]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 118.
+
+Underfull \hbox (badness 4479) in paragraph at lines 135--135
+[]|\TU/TimesNewRoman(0)/m/n/10 NYC Borough name (Manhattan,
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+[]|\TU/TimesNewRoman(0)/m/n/10 None required (100%
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+[]|\TU/TimesNewRoman(0)/m/n/10 None required (100%
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+[]|\TU/TimesNewRoman(0)/b/n/10 Conditional Reten-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+\TU/TimesNewRoman(0)/m/n/10 out-of-city dropoffs;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+\TU/TimesNewRoman(0)/m/n/10 excluded for origin
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+[]|\TU/TimesNewRoman(0)/m/n/10 None required (100%
+ []
+
+
+Underfull \hbox (badness 7869) in paragraph at lines 190--190
+[]|\TU/TimesNewRoman(0)/b/n/10 Filter Out\TU/TimesNewRoman(0)/m/n/10 : Extreme
+ []
+
+
+Underfull \hbox (badness 1308) in paragraph at lines 190--190
+[]|\TU/TimesNewRoman(0)/b/n/10 Filter Out\TU/TimesNewRoman(0)/m/n/10 : Stationa
+ry
+ []
+
+
+Underfull \hbox (badness 3930) in paragraph at lines 190--190
+\TU/TimesNewRoman(0)/m/n/10 meter runs / cancella-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+[]|\TU/TimesNewRoman(0)/b/n/10 Filter Out\TU/TimesNewRoman(0)/m/n/10 : Dispute
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+\TU/TimesNewRoman(0)/m/n/10 voids, chargebacks,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--190
+\TU/TimesNewRoman(0)/m/n/10 without imputation to
+ []
+
+[3] [4]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 219.
+ [5]
 File: ../figures/hourly_distribution.png Graphic file (type bmp)
 <../figures/hourly_distribution.png>
 File: ../figures/dow_distribution.png Graphic file (type bmp)
@@ -1008,7 +1079,7 @@ File: ../figures/monthly_distribution.png Graphic file (type bmp)
 <../figures/monthly_distribution.png>
 File: ../figures/daily_timeseries.png Graphic file (type bmp)
 <../figures/daily_timeseries.png>
- [4]
+ [6]
 File: ../figures/trip_distance_distribution.png Graphic file (type bmp)
 <../figures/trip_distance_distribution.png>
 File: ../figures/trip_distance_boxplot.png Graphic file (type bmp)
@@ -1016,17 +1087,50 @@ File: ../figures/trip_distance_boxplot.png Graphic file (type bmp)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 278.
+(hyperref)                removing `math shift' on input line 337.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\times' on input line 278.
+(hyperref)                removing `math shift' on input line 337.
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 361--361
+[]|\TU/TimesNewRoman(0)/m/n/10 South Ozone
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--361
+[]|\TU/TimesNewRoman(0)/m/n/10 Springfield
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--361
+[]|\TU/TimesNewRoman(0)/m/n/10 Penn Sta-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--361
+\TU/TimesNewRoman(0)/m/n/10 tion/Madison
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 361--361
+[]|\TU/TimesNewRoman(0)/m/n/10 Midtown Cen-
+ []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 278.
+(hyperref)                removing `math shift' on input line 364.
 
-[5]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\times' on input line 364.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 364.
+
+[8]
 File: ../figures/fare_amount_distribution.png Graphic file (type bmp)
 <../figures/fare_amount_distribution.png>
 File: ../figures/fare_amount_boxplot.png Graphic file (type bmp)
@@ -1034,50 +1138,77 @@ File: ../figures/fare_amount_boxplot.png Graphic file (type bmp)
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 425.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\times' on input line 336.
+(hyperref)                removing `\times' on input line 425.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 336.
+(hyperref)                removing `math shift' on input line 425.
 
-[6]
+[9]
 File: ../figures/cbd_congestion_fee_distribution.png Graphic file (type bmp)
 <../figures/cbd_congestion_fee_distribution.png>
 File: ../figures/cbd_congestion_fee_boxplot.png Graphic file (type bmp)
 <../figures/cbd_congestion_fee_boxplot.png>
- [7] [8] [9]
-Overfull \hbox (0.94601pt too wide) in paragraph at lines 479--480
+ [10]
+File: ../figures/passenger_count_distribution.png Graphic file (type bmp)
+<../figures/passenger_count_distribution.png>
+File: ../figures/passenger_count_boxplot.png Graphic file (type bmp)
+<../figures/passenger_count_boxplot.png>
+ [11] [12]
+File: ../figures/tip_amount_distribution.png Graphic file (type bmp)
+<../figures/tip_amount_distribution.png>
+File: ../figures/tip_amount_boxplot.png Graphic file (type bmp)
+<../figures/tip_amount_boxplot.png>
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 598.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\times' on input line 598.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 598.
+
+[13]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 638.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\times' on input line 638.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 638.
+
+[14]
+File: ../figures/trip_duration_distribution.png Graphic file (type bmp)
+<../figures/trip_duration_distribution.png>
+File: ../figures/trip_duration_boxplot.png Graphic file (type bmp)
+<../figures/trip_duration_boxplot.png>
+ [15] [16]
+Overfull \hbox (0.94601pt too wide) in paragraph at lines 744--745
 \TU/TimesNewRoman(0)/m/n/10.95 External environmental factors (e.g., hourly rai
 nfall, snowfall, subway service disruptions) are not present
  []
 
 
-Overfull \hbox (55.15521pt too wide) in paragraph at lines 491--492
+Overfull \hbox (55.15521pt too wide) in paragraph at lines 756--757
 \TU/TimesNewRoman(0)/m/it/10.95 Data audit script executable via \TU/lmtt/m/it/
 10.95 src/data_structure_audit.py \TU/TimesNewRoman(0)/m/it/10.95 and notebook 
 \TU/lmtt/m/it/10.95 notebooks/data_audit.ipynb\TU/TimesNewRoman(0)/m/it/10.95 .
  
  []
 
-[10] [11]
-Overfull \hbox (0.94601pt too wide) in paragraph at lines 570--571
-\TU/TimesNewRoman(0)/m/n/10.95 External environmental factors (e.g., hourly rai
-nfall, snowfall, subway service disruptions) are not present
- []
-
-[12]
-Overfull \hbox (55.15521pt too wide) in paragraph at lines 582--583
-\TU/TimesNewRoman(0)/m/it/10.95 Data audit script executable via \TU/lmtt/m/it/
-10.95 src/data_structure_audit.py \TU/TimesNewRoman(0)/m/it/10.95 and notebook 
-\TU/lmtt/m/it/10.95 notebooks/data_audit.ipynb\TU/TimesNewRoman(0)/m/it/10.95 .
- 
- []
-
-[13] (./untitled-1.aux)
+[17] (./untitled-1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1086,16 +1217,22 @@ L3 programming layer <2026-01-19>
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `untitled-1.out' has not changed.
-(rerunfilecheck)             Checksum: 4FBC3907AA3B27555EA2D1E043EDF6C0;10505.
+
+Package rerunfilecheck Warning: File `untitled-1.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `untitled-1.out':
+(rerunfilecheck)             Before: 162816CBAD0EE7E4B046D6C7E45F4583;15120
+(rerunfilecheck)             After:  AD4BC3D1EDB45609048DAD36E2772027;12241.
  ) 
 Here is how much of TeX's memory you used:
- 27709 strings out of 468168
- 562647 string characters out of 5432819
- 1207636 words of memory out of 5000000
- 55994 multiletter control sequences out of 15000+600000
- 636221 words of font info for 104 fonts, out of 8000000 for 9000
+ 27792 strings out of 468168
+ 565549 string characters out of 5432819
+ 1206636 words of memory out of 5000000
+ 56068 multiletter control sequences out of 15000+600000
+ 636237 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  102i,11n,107p,1160b,828s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on untitled-1.pdf (13 pages).
+Output written on untitled-1.pdf (17 pages).
