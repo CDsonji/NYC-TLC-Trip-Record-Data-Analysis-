@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.15)  2 NOV 2026 00:33
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.15)  2 NOV 2026 09:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1128,14 +1128,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 882.
 
 [16] [17]
-
-LaTeX Warning: Reference `tab:stats_trip_speed_comparison' on page 18 undefined
- on input line 919.
-
 File: ../figures/trip_speed_distribution.png Graphic file (type bmp)
 <../figures/trip_speed_distribution.png>
 File: ../figures/trip_speed_boxplot.png Graphic file (type bmp)
 <../figures/trip_speed_boxplot.png>
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 946.
@@ -1174,27 +1171,14 @@ Overfull \hbox (55.15521pt too wide) in paragraph at lines 1045--1046
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: 43350C52F84C2E9F7500D81F4D48702A;13840
-(rerunfilecheck)             After:  5A07FAF1928C4F36B5474AA195A3B41E;13878.
+Package rerunfilecheck Info: File `report.out' has not changed.
+(rerunfilecheck)             Checksum: 5A07FAF1928C4F36B5474AA195A3B41E;13878.
  ) 
 Here is how much of TeX's memory you used:
- 27846 strings out of 468168
- 567466 string characters out of 5432819
- 1261626 words of memory out of 5000000
- 56116 multiletter control sequences out of 15000+600000
+ 27845 strings out of 468168
+ 567444 string characters out of 5432819
+ 1261628 words of memory out of 5000000
+ 56115 multiletter control sequences out of 15000+600000
  636253 words of font info for 108 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  102i,11n,107p,1156b,828s stack positions out of 10000i,1000n,20000p,200000b,200000s
