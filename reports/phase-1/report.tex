@@ -10,6 +10,7 @@
 \usepackage{array}
 \usepackage{xcolor}
 \usepackage{listings}
+\usepackage{multirow}
 \usepackage{tikz}
 \usepackage{subcaption}
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning}
@@ -953,11 +954,403 @@ However, \textbf{these higher-speed observations are strictly retained up to the
     \item \textbf{Telemetry Filtering Threshold ($80$ mph):} To prevent severe GPS satellite jumps and clock anomalies from corrupting the analytical pipeline, an upper boundary is enforced at $80$ mph ($v \le 80$ mph). This retains $100\%$ of legitimate transportation activity while removing physically impossible telematics errors.
 \end{enumerate}
 
-\subsection{Spatial Distribution and Zone-Level Concentration}
-Spatial analysis across the $265$ official TLC taxi zones reveals extreme geographical concentration. Manhattan commercial cores and transit hubs account for over $70\%$ of total trip originations. Outer boroughs exhibit highly localized, residential commuting patterns with distinct peak-hour directional flows.
+\section{Spatial Exploratory Data Analysis and Geographic Distribution}
 
-\subsection{Univariate and Multivariate Relationships}
-Univariate inspection of financial and physical features confirms right-skewed distributions in trip distance and fare amounts, reinforcing the necessity for robust feature transformations in subsequent phases. Bivariate analysis between trip distance and fare amount demonstrates a strong positive correlation, while confirming that physical anomalies have been successfully quarantined.
+To understand the spatial dynamics and geographic concentration of the 2025 NYC Yellow Taxi dataset, trips were mapped and aggregated across official NYC TLC taxi zones and boroughs. Due to high-density commercial hubs (such as Midtown Manhattan and major transport terminals), standard linear visualizations often compress outer-borough variations. Therefore, both linear and logarithmic spatial density analyses were conducted alongside borough-level trip volume breakdowns.
+
+\subsection{NYC Taxi Zones and Borough Breakdown}
+The study area encompasses all official NYC TLC taxi zones categorized across the five main boroughs (Manhattan, Brooklyn, Queens, the Bronx, and Staten Island), alongside Newark Liberty International Airport (EWR). As illustrated in Figure~\ref{fig:taxi_zones}, Manhattan represents a high-density, highly fragmented zone structure, whereas outer boroughs such as Queens and Staten Island feature larger geographic zones with distinct travel patterns.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.75\textwidth]{../figures/nyc_taxi_zones_map.png}
+    \caption{NYC Taxi Zones categorized by Borough.}
+    \label{fig:taxi_zones}
+\end{figure}
+
+\subsection{Borough-Level Pickup and Drop-off Volume Distribution}
+Aggregating trip activity by borough reveals a pronounced spatial imbalance between Manhattan and the rest of New York City. Figure~\ref{fig:borough_distribution} compares the volume of pickups and drop-offs across all six administrative jurisdictions.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/spatial_borough_volume.png}
+    \caption{Comparison of Pickup and Drop-off Spatial Distributions across NYC Boroughs (2025).}
+    \label{fig:borough_distribution}
+\end{figure}
+
+Key observations from the borough trip distribution include:
+\begin{itemize}
+    \item \textbf{Manhattan Dominance:} Manhattan accounts for the overwhelming majority of both total pickups and drop-offs, reflecting its status as the city's primary commercial and tourism epicenter.
+    \item \textbf{Asymmetric Outer-Borough Trips:} Queens and Brooklyn record substantial drop-off volumes relative to their pickup counts, indicating a high prevalence of inbound commuter or late-night trips returning from Manhattan.
+    \item \textbf{Sparser Peripheral Demand:} The Bronx, Staten Island, and EWR register minimal overall Yellow Taxi volume, pointing to localized demand patterns largely served by alternative transport modes or local taxi services.
+\end{itemize}
+
+\subsection{Spatial Density Concentration: Linear vs. Logarithmic Analysis}
+Analyzing annual trip pick-up counts at the individual zone level further confirms the extreme spatial concentration observed in the borough totals.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{../figures/spatial_pickup_density_map.png}
+        \caption{Linear Scale (Highlighting Extreme Core Concentration)}
+        \label{fig:density_linear}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{../figures/spatial_pickup_density_map_log.png}
+        \caption{Logarithmic Scale (Illuminating Outer-Borough Variance)}
+        \label{fig:density_log}
+    \end{subfigure}
+    \caption{Annual Pickup Demand Density per Zone (2025).}
+    \label{fig:pickup_densities}
+\end{figure}
+
+As shown in Figure~\ref{fig:pickup_densities}:
+\begin{itemize}
+    \item \textbf{Linear Scale Map (Figure~\ref{fig:density_linear}):} Effectively captures extreme core hotspots exceeding $1.5 \times 10^6$ annual pickups in Midtown Manhattan and JFK Airport, but compresses outer-borough zones into a uniform low-density tier.
+    \item \textbf{Logarithmic Scale Map (Figure~\ref{fig:density_log}):} Successfully expands the lower-to-middle color spectrum ($10^1$ to $10^5$ trips), revealing subtle variations, active commercial corridors in Brooklyn and Queens, and suburban transit patterns that would otherwise remain hidden behind extreme outliers.
+\end{itemize}
+
+\subsection{Top Busiest Taxi Zones and Micro-Spatial Insights}
+To evaluate local demand hotspots, Table~\ref{tab:top_10_zones} lists the top 10 busiest pickup zones across New York City in 2025 alongside their corresponding average trip distances and fare amounts.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Top 10 Busiest Taxi Pickup Zones in NYC (2025)}
+    \label{tab:top_10_zones}
+    \begin{tabular}{llrrr}
+        \toprule
+        \textbf{Zone Name} & \textbf{Borough} & \textbf{Pickup Count} & \textbf{Avg Distance (mi)} & \textbf{Avg Fare (\$)} \\
+        \midrule
+        Upper East Side South & Manhattan & 1,994,156 & 1.80 & 13.38 \\
+        Midtown Center & Manhattan & 1,942,432 & 2.34 & 17.04 \\
+        JFK Airport & Queens & 1,876,676 & 15.47 & 63.54 \\
+        Upper East Side North & Manhattan & 1,742,460 & 2.00 & 13.89 \\
+        Penn Station/Madison Sq West & Manhattan & 1,441,146 & 2.33 & 17.15 \\
+        Midtown East & Manhattan & 1,409,260 & 2.30 & 16.14 \\
+        Times Sq/Theatre District & Manhattan & 1,390,476 & 3.03 & 19.42 \\
+        Lincoln Square East & Manhattan & 1,283,771 & 2.21 & 14.72 \\
+        LaGuardia Airport & Queens & 1,223,332 & 9.61 & 45.54 \\
+        Union Sq & Manhattan & 1,185,896 & 2.12 & 15.20 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Key analytical takeaways from the top 10 pickup zones include:
+\begin{itemize}
+    \item \textbf{Residential \& Commercial Core Dominance:} Upper East Side South and Midtown Center top the list with nearly 2 million pickups each. These Manhattan zones exhibit short average trip distances ($\sim 1.80$--$2.34$ miles) and lower average fares ($\sim \$13.38$--$\$17.04$), reflecting dense intracity commuting.
+    \item \textbf{Airport Hub Premiums:} JFK Airport and LaGuardia Airport rank among the busiest zones nationwide, generating over 3.1 million combined pickups. Unlike Manhattan zones, airport trips exhibit significantly longer trip distances (15.47 miles for JFK and 9.61 miles for LGA) and higher average fare amounts (\$63.54 and \$45.54 respectively), serving as high-yield revenue corridors.
+    \item \textbf{Transit Hub Intersections:} Rail terminals and tourist hubs (Penn Station and Times Square) display elevated trip volumes with slightly higher average distances (up to 3.03 miles), acting as primary distribution points across Midtown Manhattan.
+\end{itemize}
+
+\subsection{Borough-Level Descriptive and Distribution Analysis}
+
+To analyze traffic dynamics across different regional jurisdictions, trip metrics including trip distance, fare amount, trip duration, and calculated operational speed were examined on a borough-by-borough basis.
+
+\subsubsection{Manhattan}
+Manhattan represents the primary epicenter of yellow taxi activity, accounting for over $38\text{ million}$ pickup and drop-off trips. Table~\ref{tab:manhattan_stats} summarizes the key parametric and non-parametric statistical metrics for Manhattan trips.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Descriptive Statistics for Manhattan Trip Attributes (2025)}
+    \label{tab:manhattan_stats}
+    \small
+    \begin{tabular}{lcccccc}
+        \toprule
+        \textbf{Spatial Type} & \textbf{Total Trips} & \textbf{Metric} & \textbf{Distance (mi)} & \textbf{Fare (\$)} & \textbf{Duration (min)} & \textbf{Speed (mph)} \\
+        \midrule
+        \multirow{5}{*}{Pickup} & \multirow{5}{*}{38,034,750} 
+        & Mean & 2.50 & 16.38 & 14.73 & 9.82 \\
+        & & Std & 2.76 & 58.22 & 10.43 & 4.92 \\
+        & & Q1 & 1.02 & 9.30 & 7.77 & 6.70 \\
+        & & Median & 1.67 & 13.28 & 12.34 & 8.91 \\
+        & & Q3 & 2.84 & 19.72 & 18.87 & 11.73 \\
+        \midrule
+        \multirow{5}{*}{Dropoff} & \multirow{5}{*}{38,352,036} 
+        & Mean & 2.74 & 17.17 & 15.36 & 10.02 \\
+        & & Std & 3.35 & 58.01 & 11.76 & 5.21 \\
+        & & Q1 & 1.02 & 9.27 & 7.81 & 6.73 \\
+        & & Median & 1.68 & 13.43 & 12.45 & 8.95 \\
+        & & Q3 & 2.90 & 20.01 & 19.20 & 11.90 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+As visualized in Figure~\ref{fig:manhattan_distributions}, the distributions across all four variables exhibit noticeable right-skewness:
+\begin{itemize}
+    \item \textbf{Trip Distance \& Fare Amount:} Intracity trips are predominantly short, with a median distance of $1.67\text{ miles}$ and a median fare of $\$13.28$. Standard deviations and upper quantiles reflect longer cross-borough trips extending into the tail.
+    \item \textbf{Trip Duration \& Speed:} Heavy traffic congestion across Manhattan's street grid restricts average vehicle movement, yielding a median trip duration of $12.34\text{ minutes}$ and a low median operational speed of $8.91\text{ mph}$.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/manhattan_variables_distribution.png}
+    \caption{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Manhattan (2025).}
+    \label{fig:manhattan_distributions}
+\end{figure}
+
+\subsubsection{Queens}
+Queens exhibits a distinctly different operational profile compared to Manhattan, heavily influenced by expansive residential layouts and the presence of major aviation hubs (JFK and LaGuardia Airports). Across the dataset, Queens accounts for $4,165,160$ pickup trips and $2,434,066$ drop-off trips. Table~\ref{tab:queens_stats} details the corresponding descriptive metrics.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Descriptive Statistics for Queens Trip Attributes (2025)}
+    \label{tab:queens_stats}
+    \small
+    \begin{tabular}{lcccccc}
+        \toprule
+        \textbf{Spatial Type} & \textbf{Total Trips} & \textbf{Metric} & \textbf{Distance (mi)} & \textbf{Fare (\$)} & \textbf{Duration (min)} & \textbf{Speed (mph)} \\
+        \midrule
+        \multirow{5}{*}{Pickup} & \multirow{5}{*}{4,165,160} 
+        & Mean & 11.51 & 50.33 & 35.26 & 20.85 \\
+        & & Std & 6.54 & 452.60 & 20.36 & 8.49 \\
+        & & Q1 & 7.36 & 33.16 & 20.11 & 14.63 \\
+        & & Median & 10.30 & 46.48 & 31.97 & 19.76 \\
+        & & Q3 & 16.98 & 70.00 & 47.15 & 26.04 \\
+        \midrule
+        \multirow{5}{*}{Dropoff} & \multirow{5}{*}{2,434,066} 
+        & Mean & 8.52 & 39.08 & 28.18 & 19.32 \\
+        & & Std & 5.42 & 591.77 & 18.99 & 8.61 \\
+        & & Q1 & 4.14 & 21.96 & 15.31 & 12.95 \\
+        & & Median & 8.11 & 36.12 & 23.93 & 18.00 \\
+        & & Q3 & 11.56 & 51.28 & 36.39 & 24.44 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+As illustrated in Figure~\ref{fig:queens_distributions}, trip lengths and fares in Queens skew significantly higher due to long-distance airport transits:
+\begin{itemize}
+    \item \textbf{Trip Distance \& Fare Amount:} Pickup trips originating in Queens show a high median distance of $10.30\text{ miles}$ and a median fare of $\$46.48$, driven by long trips to or from airport terminals and neighboring boroughs. Drop-off trips are somewhat shorter, with a median distance of $8.11\text{ miles}$ and a median fare of $\$36.12$.
+    \item \textbf{Trip Duration \& Speed:} Due to longer stretches on expressways and highways (such as the Van Wyck and Grand Central Parkway), vehicle speeds are considerably higher than in Manhattan, recording a median pickup speed of $19.76\text{ mph}$ and a median duration of $31.97\text{ minutes}$.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/queens_variables_distribution.png}
+    \caption{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Queens (2025).}
+    \label{fig:queens_distributions}
+\end{figure}
+
+\subsubsection{Brooklyn}
+Brooklyn exhibits a distinct suburban-urban mix characterized by strong inter-borough connectivity and extensive residential trip generation, accounting for $1,471,290$ pickup trips and $2,455,952$ drop-off trips. Table~\ref{tab:brooklyn_stats} summarizes the key parametric and non-parametric statistical metrics for Brooklyn trips.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Descriptive Statistics for Brooklyn Trip Attributes (2025 Sampled Data)}
+    \label{tab:brooklyn_stats}
+    \small
+    \begin{tabular}{lcccccc}
+        \toprule
+        \textbf{Spatial Type} & \textbf{Total Trips} & \textbf{Metric} & \textbf{Distance (mi)} & \textbf{Fare (\$)} & \textbf{Duration (min)} & \textbf{Speed (mph)} \\
+        \midrule
+        \multirow{5}{*}{Pickup} & \multirow{5}{*}{1,471,290} 
+        & Mean & 5.57 & 26.85 & 27.36 & 12.53 \\
+        & & Std & 4.42 & 15.50 & 19.07 & 6.43 \\
+        & & Q1 & 2.53 & 16.87 & 15.15 & 8.48 \\
+        & & Median & 4.29 & 24.39 & 22.80 & 11.11 \\
+        & & Q3 & 7.33 & 34.91 & 33.55 & 15.02 \\
+        \midrule
+        \multirow{5}{*}{Dropoff} & \multirow{5}{*}{2,455,952} 
+        & Mean & 7.27 & 34.07 & 29.89 & 14.70 \\
+        & & Std & 5.27 & 19.43 & 17.73 & 7.50 \\
+        & & Q1 & 3.37 & 20.43 & 17.83 & 9.71 \\
+        & & Median & 5.91 & 30.24 & 26.26 & 12.89 \\
+        & & Q3 & 10.05 & 43.96 & 37.64 & 17.95 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+As visualized in Figure~\ref{fig:brooklyn_distributions}, the distributions across all four variables exhibit noticeable right-skewness:
+\begin{itemize}
+    \item \textbf{Trip Distance \& Fare Amount:} Trips originating in or arriving at Brooklyn are longer on average than Manhattan trips, with median pickup distances of $4.29\text{ miles}$ and median fares of $\$24.39$. Drop-offs are even more extended (median distance of $5.91\text{ miles}$ and median fare of $\$30.24$), reflecting cross-river travel connecting Manhattan with Brooklyn commercial and residential hubs.
+    \item \textbf{Trip Duration \& Speed:} Operational speeds are moderately higher than in Manhattan due to broader thoroughfares and less dense gridlock, yielding a median pickup speed of $11.11\text{ mph}$ and a median duration of $22.80\text{ minutes}$.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/brooklyn_variables_distribution.png}
+    \caption{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Brooklyn (2025).}
+    \label{fig:brooklyn_distributions}
+\end{figure}
+
+\subsubsection{Bronx}
+The Bronx represents a distinct outer-borough operational environment characterized by moderate local trip generation and longer cross-border commuting patterns, accounting for $339,103$ pickup trips and $493,819$ drop-off trips. Table~\ref{tab:bronx_stats} summarizes the key parametric and non-parametric statistical metrics for Bronx trips.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Descriptive Statistics for Bronx Trip Attributes (2025 Sampled Data)}
+    \label{tab:bronx_stats}
+    \small
+    \begin{tabular}{lcccccc}
+        \toprule
+        \textbf{Spatial Type} & \textbf{Total Trips} & \textbf{Metric} & \textbf{Distance (mi)} & \textbf{Fare (\$)} & \textbf{Duration (min)} & \textbf{Speed (mph)} \\
+        \midrule
+        \multirow{5}{*}{Pickup} & \multirow{5}{*}{339,103} 
+        & Mean & 7.13 & 28.64 & 31.30 & 14.76 \\
+        & & Std & 5.29 & 15.96 & 24.07 & 7.55 \\
+        & & Q1 & 2.96 & 17.48 & 14.73 & 9.34 \\
+        & & Median & 5.85 & 26.54 & 23.34 & 13.04 \\
+        & & Q3 & 10.22 & 38.48 & 41.00 & 18.94 \\
+        \midrule
+        \multirow{5}{*}{Dropoff} & \multirow{5}{*}{493,819} 
+        & Mean & 9.02 & 35.79 & 31.45 & 18.29 \\
+        & & Std & 5.91 & 20.47 & 21.37 & 8.98 \\
+        & & Q1 & 4.25 & 21.20 & 17.37 & 11.05 \\
+        & & Median & 8.30 & 33.19 & 25.93 & 17.21 \\
+        & & Q3 & 12.47 & 46.40 & 38.98 & 24.46 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+As visualized in Figure~\ref{fig:bronx_distributions}, the distributions across all four variables display pronounced right-skewness:
+\begin{itemize}
+    \item \textbf{Trip Distance \& Fare Amount:} Pickup trips originating in the Bronx show a median distance of $5.85\text{ miles}$ and a median fare of $\$26.54$, while drop-offs extend further with a median distance of $8.30\text{ miles}$ and a median fare of $\$33.19$, reflecting frequent inter-borough commuting to and from Manhattan.
+    \item \textbf{Trip Duration \& Speed:} Due to highway access and less restricted arterial networks relative to core commercial zones, operational speeds are higher, featuring a median pickup speed of $13.04\text{ mph}$ and a median drop-off speed of $17.21\text{ mph}$.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/bronx_variables_distribution.png}
+    \caption{Distribution plots (Histograms with KDE) and boxplots for key trip variables in the Bronx (2025).}
+    \label{fig:bronx_distributions}
+\end{figure}
+
+\subsubsection{Staten Island}
+Staten Island represents the most peripheral and lowest-volume operational sector for yellow taxi activity, accounting for only $3,660$ pickup trips and $11,518$ drop-off trips. Table~\ref{tab:statenisland_stats} summarizes the key parametric and non-parametric statistical metrics for Staten Island trips.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Descriptive Statistics for Staten Island Trip Attributes (2025)}
+    \label{tab:statenisland_stats}
+    \small
+    \begin{tabular}{lcccccc}
+        \toprule
+        \textbf{Spatial Type} & \textbf{Total Trips} & \textbf{Metric} & \textbf{Distance (mi)} & \textbf{Fare (\$)} & \textbf{Duration (min)} & \textbf{Speed (mph)} \\
+        \midrule
+        \multirow{5}{*}{Pickup} & \multirow{5}{*}{3,660} 
+        & Mean & 9.47 & 32.76 & 26.57 & 22.76 \\
+        & & Std & 6.98 & 29.37 & 19.29 & 9.73 \\
+        & & Q1 & 4.45 & 10.97 & 13.34 & 15.50 \\
+        & & Median & 8.00 & 27.34 & 22.42 & 21.53 \\
+        & & Q3 & 13.25 & 49.07 & 35.93 & 28.54 \\
+        \midrule
+        \multirow{5}{*}{Dropoff} & \multirow{5}{*}{11,518} 
+        & Mean & 19.52 & 74.87 & 44.38 & 27.76 \\
+        & & Std & 8.38 & 36.56 & 21.93 & 8.97 \\
+        & & Q1 & 14.74 & 54.37 & 32.28 & 21.75 \\
+        & & Median & 20.58 & 80.88 & 42.72 & 27.36 \\
+        & & Q3 & 25.56 & 98.39 & 55.15 & 33.67 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+As visualized in Figure~\ref{fig:statenisland_distributions}, the distributions across all four variables exhibit unique patterns driven by long cross-borough commutes:
+\begin{itemize}
+    \item \textbf{Trip Distance \& Fare Amount:} While local pickups show moderate length (median distance of $8.00\text{ miles}$ and median fare of $\$27.34$), drop-off trips terminating in Staten Island are exceptionally long and costly, showing a median distance of $20.58\text{ miles}$ and a median fare of $\$80.88$. This reflects transits originating primarily from Manhattan or Brooklyn across bridges and expressways.
+    \item \textbf{Trip Duration \& Speed:} Due to heavy reliance on major highways and bridge crossings with limited local street congestion, operational speeds are significantly higher than inner-city boroughs, recording a median pickup speed of $21.53\text{ mph}$ and a median drop-off speed of $27.36\text{ mph}$.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/staten island_sampled_variables_distribution.png}
+    \caption{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Staten Island (2025).}
+    \label{fig:statenisland_distributions}
+\end{figure}
+
+\subsubsection{EWR}
+EWR (Newark Liberty International Airport) represents a specialized, highly asymmetric transportation terminal hub located outside New York City proper, accounting for $1,245$ pickup trips and $84,257$ drop-off trips. Table~\ref{tab:ewr_stats} summarizes the key parametric and non-parametric statistical metrics for EWR trips.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Descriptive Statistics for EWR Trip Attributes (2025 Sampled Data)}
+    \label{tab:ewr_stats}
+    \small
+    \begin{tabular}{lcccccc}
+        \toprule
+        \textbf{Spatial Type} & \textbf{Total Trips} & \textbf{Metric} & \textbf{Distance (mi)} & \textbf{Fare (\$)} & \textbf{Duration (min)} & \textbf{Speed (mph)} \\
+        \midrule
+        \multirow{5}{*}{Pickup} & \multirow{5}{*}{1,245} 
+        & Mean & 3.86 & 84.36 & 9.27 & 21.97 \\
+        & & Std & 8.17 & 44.55 & 19.61 & 12.27 \\
+        & & Q1 & 0.03 & 47.06 & 0.10 & 11.50 \\
+        & & Median & 0.06 & 95.32 & 0.22 & 22.94 \\
+        & & Q3 & 1.15 & 115.13 & 3.59 & 30.07 \\
+        \midrule
+        \multirow{5}{*}{Dropoff} & \multirow{5}{*}{84,257} 
+        & Mean & 17.85 & 97.56 & 41.52 & 28.04 \\
+        & & Std & 4.90 & 20.95 & 16.63 & 8.63 \\
+        & & Q1 & 16.00 & 85.82 & 30.95 & 22.33 \\
+        & & Median & 17.59 & 93.34 & 37.64 & 28.54 \\
+        & & Q3 & 19.45 & 103.51 & 48.23 & 34.10 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+As visualized in Figure~\ref{fig:ewr_distributions}, trip attributes display distinct characteristics reflecting airport drop-off and minor local pick-up anomalies:
+\begin{itemize}
+    \item \textbf{Trip Distance \& Fare Amount:} Drop-off trips arriving at EWR involve substantial inter-state or cross-borough travel, showing a high median distance of $17.59\text{ miles}$ and an elevated median fare of $\$93.34$. In contrast, pickups at EWR show near-zero median distances and durations due to localized terminal reassignment artifacts, though their flat or minimum-charge airport toll structures drive high median fares ($\$95.32$).
+    \item \textbf{Trip Duration \& Speed:} Highway transit via the New Jersey Turnpike network yields high operational speeds, with a median drop-off speed of $28.54\text{ mph}$ and a median pickup speed of $22.94\text{ mph}$.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/ewr_variables_distribution.png}
+    \caption{Distribution plots (Histograms with KDE) and boxplots for key trip variables in EWR (2025 Sampled Data).}
+    \label{fig:ewr_distributions}
+\end{figure}
+
+\subsection{Summary Implications for Machine Learning Modeling}
+The structural disparity and extreme spatial concentration underscore the necessity of incorporating zone-level spatial embeddings, borough cross-features, and log-transformed demand metrics when developing predictive hourly demand models in subsequent project phases.
+
+\subsection{Multivariate Correlation and Pairwise Scatter Plot Analysis}
+
+To examine the linear dependencies and joint distributions among continuous trip attributes—namely \textbf{trip distance}, \textbf{fare amount}, \textbf{trip duration}, and \textbf{calculated speed}—multivariate correlation matrices and pairwise scatter plot matrices were generated for both the raw and cleaned datasets. Comparing these two states illustrates the profound distorting impact of uncleaned anomalies and data entry errors on statistical measures.
+
+\subsubsection{Analysis of Cleaned Data}
+In the cleaned dataset, where erroneous records, negative values, and physical impossibilities are filtered out, the correlation matrix and pairwise scatter plots reveal robust and physically coherent relationships:
+\begin{itemize}
+    \item \textbf{Trip Distance and Duration ($r = 0.782$):} Exhibiting a strong positive correlation, longer trips naturally require more travel time. The pairwise scatter plot demonstrates a dense cluster around urban distances ($<10$ miles) with a well-defined upward trend.
+    \item \textbf{Trip Distance and Speed ($r = 0.688$):} A strong positive association emerges because longer trips frequently leverage expressways and highways (such as airport runs), allowing for higher average operational speeds.
+    \item \textbf{Trip Duration and Speed ($r = 0.226$):} A moderate positive correlation indicates that longer-duration trips are often associated with high-speed highway or inter-borough transit rather than purely localized gridlock.
+    \item \textbf{Fare Amount Relationships:} While fare correlates intuitively with distance and duration, complex tariff structures (including base fares, tolls, surcharges, and tips) introduce dispersion, reflected in more moderate linear correlation coefficients ($r = 0.105$ with distance and $r = 0.092$ with duration).
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/correlation_matrix_heatmap_clean.png}
+    \caption{Pearson correlation matrix heatmap for trip attributes on the cleaned dataset.}
+    \label{fig:corr_matrix_clean}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/pairwise_scatter_matrix_clean.png}
+    \caption{Pairwise scatter plot matrix and kernel density estimations for trip attributes on the cleaned dataset.}
+    \label{fig:pairplot_clean}
+\end{figure}
+
+\subsubsection{Analysis of Raw Data and the Impact of Outliers}
+Conversely, the analysis of the raw, unfiltered dataset highlights the severe vulnerability of uncleaned administrative data to extreme outliers and data entry errors:
+\begin{itemize}
+    \item \textbf{Distortion of Correlation Coefficients:} In the raw correlation matrix, relationships between variables collapse or approach zero (e.g., distance vs. duration drops to $r = 0.003$, and fare vs. distance drops to $r = 0.001$). This occurs because extreme magnitude outliers—such as recorded distances exceeding $19,000$ miles or speeds reaching $60,000$ mph—overwhelm the covariance structure.
+    \item \textbf{Pairwise Compression:} As visualized in the raw pairwise scatter matrix (Figure~\ref{fig:pairplot_raw}), extreme outliers stretch the plot axes to absurd scales, compressing the entire legitimate population of millions of NYC yellow cab trips into an unreadable, microscopic point near the graph origin.
+\end{itemize}
+
+This comparison empirically underscores the absolute necessity of rigorous Phase 1 data cleaning protocols prior to conducting multivariate statistical modeling or econometric analysis.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/correlation_matrix_heatmap_raw.png}
+    \caption{Pearson correlation matrix heatmap for trip attributes on the raw (unfiltered) dataset, showing severe attenuation due to outliers.}
+    \label{fig:corr_matrix_raw}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\textwidth]{../figures/pairwise_scatter_matrix_raw.png}
+    \caption{Pairwise scatter plot matrix for trip attributes on the raw dataset, illustrating axis distortion caused by extreme uncleaned anomalies.}
+    \label{fig:pairplot_raw}
+\end{figure}
 
 \section{Methods}
 

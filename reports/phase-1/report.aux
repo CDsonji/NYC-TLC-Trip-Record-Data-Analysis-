@@ -144,23 +144,81 @@
 \newlabel{sub@fig:trip_speed_box}{{b}{19}{Box Plot (Capped at 80 MPH)}{figure.caption.28}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Distribution and Box Plot Analysis for Average Trip Speed (2025)}}{19}{figure.caption.28}\protected@file@percent }
 \newlabel{fig:trip_speed_analysis}{{10}{19}{Distribution and Box Plot Analysis for Average Trip Speed (2025)}{figure.caption.28}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.9}Spatial Distribution and Zone-Level Concentration}{19}{subsection.4.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.10}Univariate and Multivariate Relationships}{19}{subsection.4.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Methods}{20}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Aggregation and Problem Formulation}{20}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Data Flow Architecture}{20}{subsection.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Phase 1 Data Flow and Processing Architecture}}{20}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:dataflow}{{11}{20}{Phase 1 Data Flow and Processing Architecture}{figure.caption.29}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Experimental Design}{20}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Strict Temporal Split}{20}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Evaluation Metrics}{20}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Results}{21}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Interpretability and Error Analysis}{21}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Robustness / Sensitivity / Shift Analysis}{21}{section.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {10}Ethics, Privacy and Governance}{21}{section.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {11}Discussion}{21}{section.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {12}Limitations}{21}{section.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {13}Conclusion}{21}{section.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {14}References}{21}{section.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {15}Supplementary Material}{22}{section.15}\protected@file@percent }
-\gdef \@abspage@last{22}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Spatial Exploratory Data Analysis and Geographic Distribution}{19}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}NYC Taxi Zones and Borough Breakdown}{19}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces NYC Taxi Zones categorized by Borough.}}{20}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:taxi_zones}{{11}{20}{NYC Taxi Zones categorized by Borough}{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Borough-Level Pickup and Drop-off Volume Distribution}{21}{subsection.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Comparison of Pickup and Drop-off Spatial Distributions across NYC Boroughs (2025).}}{21}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:borough_distribution}{{12}{21}{Comparison of Pickup and Drop-off Spatial Distributions across NYC Boroughs (2025)}{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Spatial Density Concentration: Linear vs. Logarithmic Analysis}{21}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Top Busiest Taxi Zones and Micro-Spatial Insights}{21}{subsection.5.4}\protected@file@percent }
+\newlabel{fig:density_linear}{{13a}{22}{Linear Scale (Highlighting Extreme Core Concentration)}{figure.caption.31}{}}
+\newlabel{sub@fig:density_linear}{{a}{22}{Linear Scale (Highlighting Extreme Core Concentration)}{figure.caption.31}{}}
+\newlabel{fig:density_log}{{13b}{22}{Logarithmic Scale (Illuminating Outer-Borough Variance)}{figure.caption.31}{}}
+\newlabel{sub@fig:density_log}{{b}{22}{Logarithmic Scale (Illuminating Outer-Borough Variance)}{figure.caption.31}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Annual Pickup Demand Density per Zone (2025).}}{22}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:pickup_densities}{{13}{22}{Annual Pickup Demand Density per Zone (2025)}{figure.caption.31}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {21}{\ignorespaces Top 10 Busiest Taxi Pickup Zones in NYC (2025)}}{22}{table.caption.32}\protected@file@percent }
+\newlabel{tab:top_10_zones}{{21}{22}{Top 10 Busiest Taxi Pickup Zones in NYC (2025)}{table.caption.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Borough-Level Descriptive and Distribution Analysis}{23}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}Manhattan}{23}{subsubsection.5.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {22}{\ignorespaces Descriptive Statistics for Manhattan Trip Attributes (2025)}}{23}{table.caption.33}\protected@file@percent }
+\newlabel{tab:manhattan_stats}{{22}{23}{Descriptive Statistics for Manhattan Trip Attributes (2025)}{table.caption.33}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in Manhattan (2025).}}{24}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:manhattan_distributions}{{14}{24}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Manhattan (2025)}{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2}Queens}{25}{subsubsection.5.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {23}{\ignorespaces Descriptive Statistics for Queens Trip Attributes (2025)}}{25}{table.caption.35}\protected@file@percent }
+\newlabel{tab:queens_stats}{{23}{25}{Descriptive Statistics for Queens Trip Attributes (2025)}{table.caption.35}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.3}Brooklyn}{25}{subsubsection.5.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {24}{\ignorespaces Descriptive Statistics for Brooklyn Trip Attributes (2025 Sampled Data)}}{25}{table.caption.37}\protected@file@percent }
+\newlabel{tab:brooklyn_stats}{{24}{25}{Descriptive Statistics for Brooklyn Trip Attributes (2025 Sampled Data)}{table.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in Queens (2025).}}{26}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:queens_distributions}{{15}{26}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Queens (2025)}{figure.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in Brooklyn (2025).}}{27}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:brooklyn_distributions}{{16}{27}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Brooklyn (2025)}{figure.caption.38}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.4}Bronx}{27}{subsubsection.5.5.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {25}{\ignorespaces Descriptive Statistics for Bronx Trip Attributes (2025 Sampled Data)}}{28}{table.caption.39}\protected@file@percent }
+\newlabel{tab:bronx_stats}{{25}{28}{Descriptive Statistics for Bronx Trip Attributes (2025 Sampled Data)}{table.caption.39}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.5}Staten Island}{28}{subsubsection.5.5.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {26}{\ignorespaces Descriptive Statistics for Staten Island Trip Attributes (2025)}}{28}{table.caption.41}\protected@file@percent }
+\newlabel{tab:statenisland_stats}{{26}{28}{Descriptive Statistics for Staten Island Trip Attributes (2025)}{table.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in the Bronx (2025).}}{29}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:bronx_distributions}{{17}{29}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in the Bronx (2025)}{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in Staten Island (2025).}}{30}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:statenisland_distributions}{{18}{30}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Staten Island (2025)}{figure.caption.42}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.6}EWR}{30}{subsubsection.5.5.6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {27}{\ignorespaces Descriptive Statistics for EWR Trip Attributes (2025 Sampled Data)}}{31}{table.caption.43}\protected@file@percent }
+\newlabel{tab:ewr_stats}{{27}{31}{Descriptive Statistics for EWR Trip Attributes (2025 Sampled Data)}{table.caption.43}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Summary Implications for Machine Learning Modeling}{31}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Multivariate Correlation and Pairwise Scatter Plot Analysis}{31}{subsection.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.1}Analysis of Cleaned Data}{31}{subsubsection.5.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in EWR (2025 Sampled Data).}}{32}{figure.caption.44}\protected@file@percent }
+\newlabel{fig:ewr_distributions}{{19}{32}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in EWR (2025 Sampled Data)}{figure.caption.44}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Pearson correlation matrix heatmap for trip attributes on the cleaned dataset.}}{33}{figure.caption.45}\protected@file@percent }
+\newlabel{fig:corr_matrix_clean}{{20}{33}{Pearson correlation matrix heatmap for trip attributes on the cleaned dataset}{figure.caption.45}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.2}Analysis of Raw Data and the Impact of Outliers}{33}{subsubsection.5.7.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Pairwise scatter plot matrix and kernel density estimations for trip attributes on the cleaned dataset.}}{34}{figure.caption.46}\protected@file@percent }
+\newlabel{fig:pairplot_clean}{{21}{34}{Pairwise scatter plot matrix and kernel density estimations for trip attributes on the cleaned dataset}{figure.caption.46}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Pearson correlation matrix heatmap for trip attributes on the raw (unfiltered) dataset, showing severe attenuation due to outliers.}}{35}{figure.caption.47}\protected@file@percent }
+\newlabel{fig:corr_matrix_raw}{{22}{35}{Pearson correlation matrix heatmap for trip attributes on the raw (unfiltered) dataset, showing severe attenuation due to outliers}{figure.caption.47}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Methods}{35}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Aggregation and Problem Formulation}{35}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Data Flow Architecture}{35}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Experimental Design}{35}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Strict Temporal Split}{35}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Pairwise scatter plot matrix for trip attributes on the raw dataset, illustrating axis distortion caused by extreme uncleaned anomalies.}}{36}{figure.caption.48}\protected@file@percent }
+\newlabel{fig:pairplot_raw}{{23}{36}{Pairwise scatter plot matrix for trip attributes on the raw dataset, illustrating axis distortion caused by extreme uncleaned anomalies}{figure.caption.48}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Phase 1 Data Flow and Processing Architecture}}{36}{figure.caption.49}\protected@file@percent }
+\newlabel{fig:dataflow}{{24}{36}{Phase 1 Data Flow and Processing Architecture}{figure.caption.49}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Evaluation Metrics}{37}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Results}{37}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Interpretability and Error Analysis}{37}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Robustness / Sensitivity / Shift Analysis}{37}{section.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Ethics, Privacy and Governance}{37}{section.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {12}Discussion}{37}{section.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {13}Limitations}{37}{section.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {14}Conclusion}{38}{section.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {15}References}{38}{section.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {16}Supplementary Material}{38}{section.16}\protected@file@percent }
+\gdef \@abspage@last{38}
