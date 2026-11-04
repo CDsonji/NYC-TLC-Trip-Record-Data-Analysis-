@@ -1377,17 +1377,6 @@ In spatio-temporal forecasting and time-series modeling, data leakage represents
 
 By adhering to these rigorous partitioning and feature-engineering protocols, we eliminate structural leakage risks and guarantee that our validation scores reflect true out-of-sample generalization.
 
-\begin{itemize}
-    \item \textbf{Temporal Look-Ahead Bias:} 
-    Random shuffling or standard $k$-fold cross-validation mixes past and future observations, allowing models to ``see around corners'' using future traffic states to predict past demand. \textit{Mitigation:} We enforce a strict chronological temporal split (Training on January–September 2025; Validation/Testing on October–December 2025). The model never accesses information from periods subsequent to the training window.
-    
-    \item \textbf{Global Aggregation Leakage:} 
-    Computing global summary statistics (such as means, standardديو deviations, or min-max scaling bounds) across the entire 12-month annual dataset prior to partitioning introduces future distribution parameters into the training phase. \textit{Mitigation:} All feature engineering transformations, rolling averages, and lag calculations are computed exclusively using rolling windows or historical parameters derived strictly from the training partition ($t \le \text{September 30, 2025}$).
-    
-    \item \textbf{Spatial Target Leakage via Rolling Lags:} 
-    When constructing spatial lag features or historical moving averages across adjacent taxi zones $z$, improper window definitions can inadvertently incorporate contemporaneous hour targets ($t$) rather than lagged history ($t-1, t-2, \dots$). \textit{Mitigation:} All autoregressive lag features ($y_{z, t-k}$) are strictly lagged by at least one full hour ($k \ge 1$) to ensure that predictions for time index $t$ rely solely on historically realized information available at the time of inference.
-\end{itemize}
-
 By adhering to these rigorous partitioning and feature-engineering protocols, we eliminate structural leakage risks and guarantee that our validation scores reflect true out-of-sample generalization.
 
 \section{Robustness / Sensitivity / Shift Analysis}

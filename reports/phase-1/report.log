@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.15)  4 NOV 2026 13:36
+This is XeTeX, Version 3.141592653-2.6-0.999998 (TeX Live 2026) (preloaded format=xelatex 2026.10.15)  4 NOV 2026 15:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1217,26 +1217,19 @@ on of $\OT1/cmr/m/n/10.95 44\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 015\OML/cm
 m/m/it/10.95 ; \OT1/cmr/m/n/10.95 208$
  []
 
-[35] [36]
-Overfull \hbox (0.94601pt too wide) in paragraph at lines 1400--1401
+[35]
+Overfull \hbox (0.94601pt too wide) in paragraph at lines 1389--1390
 \TU/TimesNewRoman(0)/m/n/10.95 External environmental factors (e.g., hourly rai
 nfall, snowfall, subway service disruptions) are not present
  []
 
-[37] (./report.aux)
+[36] [37] (./report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
-
-
-Package rerunfilecheck Warning: File `report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: E86A56B91AC6168F037CE2D5B08A3395;15971
-(rerunfilecheck)             After:  95A1A143000D45E8DB8063624BD03EEC;16208.
+Package rerunfilecheck Info: File `report.out' has not changed.
+(rerunfilecheck)             Checksum: 95A1A143000D45E8DB8063624BD03EEC;16208.
  ) 
 Here is how much of TeX's memory you used:
  28043 strings out of 468168
