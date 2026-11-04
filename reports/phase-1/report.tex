@@ -1361,6 +1361,35 @@ Key quantitative findings from our Phase 1 investigation include:
 \end{itemize}
 These empirical insights directly validate our spatio-temporal aggregation unit $(z,t)$ and confirm that the selected demand forecasting question is fully supported by the cleaned dataset.
 
+\section{Data Leakage and Prevention Strategy}
+In spatio-temporal forecasting and time-series modeling, data leakage represents a critical risk where information from outside the training period or future target observations inadvertently contaminates the training set, leading to overly optimistic and ungeneralizable performance metrics. To ensure that our evaluation design realistically simulates production forecasting, we explicitly identify and mitigate three primary vectors of potential data leakage:
+
+\begin{itemize}
+    \item \textbf{Temporal Look-Ahead Bias:} 
+    Random shuffling or standard $k$-fold cross-validation mixes past and future observations, allowing models to ``see around corners'' using future traffic states to predict past demand. \textit{Mitigation:} We enforce a strict chronological temporal split (Training on January–September 2025; Validation/Testing on October–December 2025). The model never accesses information from periods subsequent to the training window.
+    
+    \item \textbf{Global Aggregation Leakage:} 
+    Computing global summary statistics (such as means, standard deviations, or min-max scaling bounds) across the entire 12-month annual dataset prior to partitioning introduces future distribution parameters into the training phase. \textit{Mitigation:} All feature engineering transformations, rolling averages, and lag calculations are computed exclusively using rolling windows or historical parameters derived strictly from the training partition ($t \le \text{September 30, 2025}$).
+    
+    \item \textbf{Spatial Target Leakage via Rolling Lags:} 
+    When constructing spatial lag features or historical moving averages across adjacent taxi zones $z$, improper window definitions can inadvertently incorporate contemporaneous hour targets ($t$) rather than lagged history ($t-1, t-2, \dots$). \textit{Mitigation:} All autoregressive lag features ($y_{z, t-k}$) are strictly lagged by at least one full hour ($k \ge 1$) to ensure that predictions for time index $t$ rely solely on historically realized information available at the time of inference.
+\end{itemize}
+
+By adhering to these rigorous partitioning and feature-engineering protocols, we eliminate structural leakage risks and guarantee that our validation scores reflect true out-of-sample generalization.
+
+\begin{itemize}
+    \item \textbf{Temporal Look-Ahead Bias:} 
+    Random shuffling or standard $k$-fold cross-validation mixes past and future observations, allowing models to ``see around corners'' using future traffic states to predict past demand. \textit{Mitigation:} We enforce a strict chronological temporal split (Training on January–September 2025; Validation/Testing on October–December 2025). The model never accesses information from periods subsequent to the training window.
+    
+    \item \textbf{Global Aggregation Leakage:} 
+    Computing global summary statistics (such as means, standardديو deviations, or min-max scaling bounds) across the entire 12-month annual dataset prior to partitioning introduces future distribution parameters into the training phase. \textit{Mitigation:} All feature engineering transformations, rolling averages, and lag calculations are computed exclusively using rolling windows or historical parameters derived strictly from the training partition ($t \le \text{September 30, 2025}$).
+    
+    \item \textbf{Spatial Target Leakage via Rolling Lags:} 
+    When constructing spatial lag features or historical moving averages across adjacent taxi zones $z$, improper window definitions can inadvertently incorporate contemporaneous hour targets ($t$) rather than lagged history ($t-1, t-2, \dots$). \textit{Mitigation:} All autoregressive lag features ($y_{z, t-k}$) are strictly lagged by at least one full hour ($k \ge 1$) to ensure that predictions for time index $t$ rely solely on historically realized information available at the time of inference.
+\end{itemize}
+
+By adhering to these rigorous partitioning and feature-engineering protocols, we eliminate structural leakage risks and guarantee that our validation scores reflect true out-of-sample generalization.
+
 \section{Robustness / Sensitivity / Shift Analysis}
 The key temporal shift in 2025 stems from evolving urban mobility patterns and seasonal commuter variations. Future phases will evaluate whether model residuals increase in high-density commercial core clusters during peak transitional months compared to outer borough controls.
 
@@ -1396,6 +1425,8 @@ Data audit and exploratory analysis are executable via the project repository fi
         \item \texttt{src/download\_spatial.py}
     \end{itemize}
 \end{itemize}
+
+\noindent\textit{Note: For further execution instructions, please refer to the \texttt{README.md} file in the project's source code repository at \url{https://github.com/CDsonji/NYC-TLC-Trip-Record-Data-Analysis-.git}.}
 
 
 

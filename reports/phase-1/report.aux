@@ -1,0 +1,212 @@
+\relax 
+\providecommand \babel@aux [2]{\global \let \babel@toc \@gobbletwo }
+\@nameuse{bbl@beforestart}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand*\HyPL@Entry[1]{}
+\HyPL@Entry{0<</S/D>>}
+\babel@aux{english}{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Problem Definition and Motivation}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Data and Data Quality}{1}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Dataset Overview}{1}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Structural Audit}{1}{subsection.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces NYC Yellow Taxi 2025 Dataset Schema and Variable Categorization}}{2}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:schema}{{1}{2}{NYC Yellow Taxi 2025 Dataset Schema and Variable Categorization}{table.caption.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Spatial Data Structure and Schema Audit}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Taxi Zone Lookup Table (\texttt  {taxi\_zone\_lookup.csv})}{3}{subsection.3.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Taxi Zone Lookup Table Schema (\texttt  {taxi\_zone\_lookup.csv})}}{3}{table.caption.2}\protected@file@percent }
+\newlabel{tab:lookup_schema}{{2}{3}{Taxi Zone Lookup Table Schema (\texttt {taxi\_zone\_lookup.csv})}{table.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Taxi Zones Spatial File (\texttt  {taxi\_zones.shp})}{3}{subsection.3.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Taxi Zones Spatial Vector Schema (\texttt  {taxi\_zones.shp})}}{3}{table.caption.3}\protected@file@percent }
+\newlabel{tab:spatial_schema}{{3}{3}{Taxi Zones Spatial Vector Schema (\texttt {taxi\_zones.shp})}{table.caption.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Table and Spatial Relationships}{3}{subsection.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Data Quality Quantification and Decisions}{3}{subsection.3.7}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Data Quality Audit Metrics and Treatment Decisions (Full Year 2025)}}{4}{table.caption.4}\protected@file@percent }
+\newlabel{tab:quality_audit}{{4}{4}{Data Quality Audit Metrics and Treatment Decisions (Full Year 2025)}{table.caption.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.1}Rationale for Data Quality Treatment Decisions}{4}{subsubsection.3.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.7.2}Summary of Cleansing Impact:}{5}{subsubsection.3.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8}Data Flow Architecture}{5}{subsection.3.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9}Empirical Examples of Identified Anomalies}{5}{subsection.3.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Phase 1 Data Flow and Processing Architecture}}{6}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:dataflow}{{1}{6}{Phase 1 Data Flow and Processing Architecture}{figure.caption.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Sample Records: Invalid or Excessive Duration ($\Delta t > 4$h or $\le 0$ min)}}{6}{table.caption.6}\protected@file@percent }
+\newlabel{tab:sample_duration}{{5}{6}{Sample Records: Invalid or Excessive Duration ($\Delta t > 4$h or $\le 0$ min)}{table.caption.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Sample Records: Extreme Distance Anomalies (Intra-city $>100$mi or Out-of-city $>200$mi)}}{6}{table.caption.7}\protected@file@percent }
+\newlabel{tab:sample_distance}{{6}{6}{Sample Records: Extreme Distance Anomalies (Intra-city $>100$mi or Out-of-city $>200$mi)}{table.caption.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Sample Records: Zero-Distance Trips ($d = 0$ miles)}}{6}{table.caption.8}\protected@file@percent }
+\newlabel{tab:sample_zerodist}{{7}{6}{Sample Records: Zero-Distance Trips ($d = 0$ miles)}{table.caption.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Sample Records: Negative Fare Amounts ($f < \$0$)}}{6}{table.caption.9}\protected@file@percent }
+\newlabel{tab:sample_negfare}{{8}{6}{Sample Records: Negative Fare Amounts ($f < \$0$)}{table.caption.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Sample Records: Invalid or Missing Passenger Counts (\texttt  {NULL})}}{7}{table.caption.10}\protected@file@percent }
+\newlabel{tab:sample_passengers}{{9}{7}{Sample Records: Invalid or Missing Passenger Counts (\texttt {NULL})}{table.caption.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces Sample Records: Location Anomalies (Zones 264 and 265)}}{7}{table.caption.11}\protected@file@percent }
+\newlabel{tab:sample_locations}{{10}{7}{Sample Records: Location Anomalies (Zones 264 and 265)}{table.caption.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Sample Records: Invalid Speed Anomalies ($v > 80$ mph)}}{7}{table.caption.12}\protected@file@percent }
+\newlabel{tab:sample_speed}{{11}{7}{Sample Records: Invalid Speed Anomalies ($v > 80$ mph)}{table.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces Sample Records: Micro-Trip Speed Artifacts ($\Delta t < 1$ min and $v > 70$ mph)}}{7}{table.caption.13}\protected@file@percent }
+\newlabel{tab:sample_microtrips}{{12}{7}{Sample Records: Micro-Trip Speed Artifacts ($\Delta t < 1$ min and $v > 70$ mph)}{table.caption.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Exploratory Data Analysis (EDA)}{8}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Temporal Distributions and Time Audit}{8}{subsection.4.1}\protected@file@percent }
+\newlabel{fig:hourly}{{2a}{8}{Hourly Trip Distribution}{figure.caption.14}{}}
+\newlabel{sub@fig:hourly}{{a}{8}{Hourly Trip Distribution}{figure.caption.14}{}}
+\newlabel{fig:dow}{{2b}{8}{Day of Week Distribution}{figure.caption.14}{}}
+\newlabel{sub@fig:dow}{{b}{8}{Day of Week Distribution}{figure.caption.14}{}}
+\newlabel{fig:monthly}{{2c}{8}{Monthly Trip Volume}{figure.caption.14}{}}
+\newlabel{sub@fig:monthly}{{c}{8}{Monthly Trip Volume}{figure.caption.14}{}}
+\newlabel{fig:daily}{{2d}{8}{Daily Time Series}{figure.caption.14}{}}
+\newlabel{sub@fig:daily}{{d}{8}{Daily Time Series}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Temporal Distribution and Time Series Analysis of NYC Yellow Taxi Trips (2025)}}{8}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:temporal_grid}{{2}{8}{Temporal Distribution and Time Series Analysis of NYC Yellow Taxi Trips (2025)}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Exploratory Data Analysis: Trip Distance}{9}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:eda_trip_distance}{{4.2}{9}{Exploratory Data Analysis: Trip Distance}{subsection.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces Pre- and Post-Cleansing Descriptive Statistics for Trip Distance (2025 Dataset)}}{9}{table.caption.15}\protected@file@percent }
+\newlabel{tab:stats_trip_distance_comparison}{{13}{9}{Pre- and Post-Cleansing Descriptive Statistics for Trip Distance (2025 Dataset)}{table.caption.15}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Statistical Characteristics and Cleansing Impact Analysis}{9}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Long-Distance Trips and Outlier Analysis ($>30$ Miles)}{9}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Justification for Retaining Outliers Beyond the 1.5$\times $IQR Rule}{9}{subsubsection.4.2.3}\protected@file@percent }
+\newlabel{fig:trip_distance_dist}{{3a}{10}{Probability Density Distribution Capped at 30 Miles}{figure.caption.16}{}}
+\newlabel{sub@fig:trip_distance_dist}{{a}{10}{Probability Density Distribution Capped at 30 Miles}{figure.caption.16}{}}
+\newlabel{fig:trip_distance_box}{{3b}{10}{Box Plot (Capped at 30 Miles)}{figure.caption.16}{}}
+\newlabel{sub@fig:trip_distance_box}{{b}{10}{Box Plot (Capped at 30 Miles)}{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Distribution and Box Plot Analysis for Filtered Trip Distance (2025)}}{10}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:trip_distance_analysis}{{3}{10}{Distribution and Box Plot Analysis for Filtered Trip Distance (2025)}{figure.caption.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Sample of Long-Distance Yellow Taxi Trips Exceeding 30 Miles (2025)}}{10}{table.caption.17}\protected@file@percent }
+\newlabel{tab:long_distance_trips}{{14}{10}{Sample of Long-Distance Yellow Taxi Trips Exceeding 30 Miles (2025)}{table.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Exploratory Data Analysis: Fare Amount}{10}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:eda_fare_amount}{{4.3}{10}{Exploratory Data Analysis: Fare Amount}{subsection.4.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {15}{\ignorespaces Pre- and Post-Cleansing Descriptive Statistics for Fare Amount (2025 Dataset)}}{11}{table.caption.18}\protected@file@percent }
+\newlabel{tab:stats_fare_amount_comparison}{{15}{11}{Pre- and Post-Cleansing Descriptive Statistics for Fare Amount (2025 Dataset)}{table.caption.18}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Statistical Characteristics and Cleansing Impact Analysis}{11}{subsubsection.4.3.1}\protected@file@percent }
+\newlabel{fig:fare_amount_dist}{{4a}{11}{Probability Density Distribution}{figure.caption.19}{}}
+\newlabel{sub@fig:fare_amount_dist}{{a}{11}{Probability Density Distribution}{figure.caption.19}{}}
+\newlabel{fig:fare_amount_box}{{4b}{11}{Box Plot (Capped at \$100)}{figure.caption.19}{}}
+\newlabel{sub@fig:fare_amount_box}{{b}{11}{Box Plot (Capped at \$100)}{figure.caption.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Distribution and Box Plot Analysis for Fare Amount (2025)}}{11}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:fare_amount_analysis}{{4}{11}{Distribution and Box Plot Analysis for Fare Amount (2025)}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Justification for Retaining Outliers Beyond the 1.5$\times $IQR Rule}{12}{subsubsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Exploratory Data Analysis: Passenger Count}{12}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:eda_passenger_count}{{4.4}{12}{Exploratory Data Analysis: Passenger Count}{subsection.4.4}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {16}{\ignorespaces Descriptive Statistics for Valid Passenger Count (2025 Dataset)}}{12}{table.caption.20}\protected@file@percent }
+\newlabel{tab:stats_passenger_count}{{16}{12}{Descriptive Statistics for Valid Passenger Count (2025 Dataset)}{table.caption.20}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Statistical Characteristics and Distribution Shape}{12}{subsubsection.4.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Trip Count by Passenger Occupancy (Excluding Unrecorded Values)}}{13}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:passenger_count_dist}{{5}{13}{Trip Count by Passenger Occupancy (Excluding Unrecorded Values)}{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Box Plot for Discrete Occupancy Tiers}}{13}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:passenger_count_box}{{6}{13}{Box Plot for Discrete Occupancy Tiers}{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Distribution and Box Plot Analysis for Passenger Count (2025)}}{13}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:passenger_count_analysis}{{7}{13}{Distribution and Box Plot Analysis for Passenger Count (2025)}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.2}Methodological Note on Discrete Categorical Variables and Graphical Exclusions}{13}{subsubsection.4.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Exploratory Data Analysis: Tip Amount}{13}{subsection.4.5}\protected@file@percent }
+\newlabel{sec:eda_tip_amount}{{4.5}{13}{Exploratory Data Analysis: Tip Amount}{subsection.4.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.1}Statistical Characteristics and Cleansing Impact Analysis}{13}{subsubsection.4.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {17}{\ignorespaces Pre- and Post-Cleansing Descriptive Statistics for Tip Amount (2025 Dataset)}}{14}{table.caption.22}\protected@file@percent }
+\newlabel{tab:stats_tip_amount_comparison}{{17}{14}{Pre- and Post-Cleansing Descriptive Statistics for Tip Amount (2025 Dataset)}{table.caption.22}{}}
+\newlabel{fig:tip_amount_dist}{{8a}{14}{Probability Density Distribution}{figure.caption.23}{}}
+\newlabel{sub@fig:tip_amount_dist}{{a}{14}{Probability Density Distribution}{figure.caption.23}{}}
+\newlabel{fig:tip_amount_box}{{8b}{14}{Box Plot (Capped at \$30)}{figure.caption.23}{}}
+\newlabel{sub@fig:tip_amount_box}{{b}{14}{Box Plot (Capped at \$30)}{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Distribution and Box Plot Analysis for Tip Amount (2025)}}{14}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:tip_amount_analysis}{{8}{14}{Distribution and Box Plot Analysis for Tip Amount (2025)}{figure.caption.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.5.2}Justification for Retaining Outliers Beyond the 1.5$\times $IQR Rule}{14}{subsubsection.4.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Exploratory Data Analysis: Trip Duration}{15}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:eda_trip_duration}{{4.6}{15}{Exploratory Data Analysis: Trip Duration}{subsection.4.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {18}{\ignorespaces Pre- and Post-Cleansing Descriptive Statistics for Trip Duration (2025 Dataset)}}{15}{table.caption.24}\protected@file@percent }
+\newlabel{tab:stats_trip_duration_comparison}{{18}{15}{Pre- and Post-Cleansing Descriptive Statistics for Trip Duration (2025 Dataset)}{table.caption.24}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.1}Statistical Characteristics and Cleansing Impact Analysis}{15}{subsubsection.4.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.6.2}Justification for Retaining Outliers Beyond the 1.5$\times $IQR Rule}{15}{subsubsection.4.6.2}\protected@file@percent }
+\newlabel{fig:trip_duration_precleansing}{{9a}{16}{Pre-Cleansing Trip Duration Distribution (Showing Raw Anomalies)}{figure.caption.25}{}}
+\newlabel{sub@fig:trip_duration_precleansing}{{a}{16}{Pre-Cleansing Trip Duration Distribution (Showing Raw Anomalies)}{figure.caption.25}{}}
+\newlabel{fig:trip_duration_dist}{{9b}{16}{Post-Cleansing Probability Density}{figure.caption.25}{}}
+\newlabel{sub@fig:trip_duration_dist}{{b}{16}{Post-Cleansing Probability Density}{figure.caption.25}{}}
+\newlabel{fig:trip_duration_box}{{9c}{16}{Box Plot (Capped at 60 Minutes)}{figure.caption.25}{}}
+\newlabel{sub@fig:trip_duration_box}{{c}{16}{Box Plot (Capped at 60 Minutes)}{figure.caption.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Pre- and Post-Cleansing Distribution and Box Plot Analysis for Trip Duration (2025)}}{16}{figure.caption.25}\protected@file@percent }
+\newlabel{fig:trip_duration_analysis}{{9}{16}{Pre- and Post-Cleansing Distribution and Box Plot Analysis for Trip Duration (2025)}{figure.caption.25}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.7}Exploratory Data Analysis: Average Trip Speed}{17}{subsection.4.7}\protected@file@percent }
+\newlabel{sec:eda_trip_speed}{{4.7}{17}{Exploratory Data Analysis: Average Trip Speed}{subsection.4.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {19}{\ignorespaces Pre- and Post-Cleansing Descriptive Statistics for Average Trip Speed (2025 Dataset)}}{17}{table.caption.26}\protected@file@percent }
+\newlabel{tab:stats_trip_speed_comparison}{{19}{17}{Pre- and Post-Cleansing Descriptive Statistics for Average Trip Speed (2025 Dataset)}{table.caption.26}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.7.1}Statistical Characteristics and Cleansing Impact Analysis}{17}{subsubsection.4.7.1}\protected@file@percent }
+\newlabel{fig:trip_speed_dist}{{10a}{18}{Probability Density Distribution}{figure.caption.27}{}}
+\newlabel{sub@fig:trip_speed_dist}{{a}{18}{Probability Density Distribution}{figure.caption.27}{}}
+\newlabel{fig:trip_speed_box}{{10b}{18}{Box Plot (Capped at 80 MPH)}{figure.caption.27}{}}
+\newlabel{sub@fig:trip_speed_box}{{b}{18}{Box Plot (Capped at 80 MPH)}{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Distribution and Box Plot Analysis for Average Trip Speed (2025)}}{18}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:trip_speed_analysis}{{10}{18}{Distribution and Box Plot Analysis for Average Trip Speed (2025)}{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.7.2}Justification for Retaining Speeds Beyond the 1.5$\times $IQR Rule}{18}{subsubsection.4.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Spatial Exploratory Data Analysis and Geographic Distribution}{18}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}NYC Taxi Zones and Borough Breakdown}{19}{subsection.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces NYC Taxi Zones categorized by Borough.}}{19}{figure.caption.28}\protected@file@percent }
+\newlabel{fig:taxi_zones}{{11}{19}{NYC Taxi Zones categorized by Borough}{figure.caption.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Borough-Level Pickup and Drop-off Volume Distribution}{19}{subsection.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Comparison of Pickup and Drop-off Spatial Distributions across NYC Boroughs (2025).}}{20}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:borough_distribution}{{12}{20}{Comparison of Pickup and Drop-off Spatial Distributions across NYC Boroughs (2025)}{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Spatial Density Concentration: Linear vs. Logarithmic Analysis}{20}{subsection.5.3}\protected@file@percent }
+\newlabel{fig:density_linear}{{13a}{20}{Linear Scale (Highlighting Extreme Core Concentration)}{figure.caption.30}{}}
+\newlabel{sub@fig:density_linear}{{a}{20}{Linear Scale (Highlighting Extreme Core Concentration)}{figure.caption.30}{}}
+\newlabel{fig:density_log}{{13b}{20}{Logarithmic Scale (Illuminating Outer-Borough Variance)}{figure.caption.30}{}}
+\newlabel{sub@fig:density_log}{{b}{20}{Logarithmic Scale (Illuminating Outer-Borough Variance)}{figure.caption.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Annual Pickup Demand Density per Zone (2025).}}{20}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:pickup_densities}{{13}{20}{Annual Pickup Demand Density per Zone (2025)}{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Top Busiest Taxi Zones and Micro-Spatial Insights}{21}{subsection.5.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {20}{\ignorespaces Top 10 Busiest Taxi Pickup Zones in NYC (2025)}}{21}{table.caption.31}\protected@file@percent }
+\newlabel{tab:top_10_zones}{{20}{21}{Top 10 Busiest Taxi Pickup Zones in NYC (2025)}{table.caption.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Borough-Level Descriptive and Distribution Analysis}{21}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}Manhattan}{21}{subsubsection.5.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {21}{\ignorespaces Descriptive Statistics for Manhattan Trip Attributes (2025)}}{22}{table.caption.32}\protected@file@percent }
+\newlabel{tab:manhattan_stats}{{21}{22}{Descriptive Statistics for Manhattan Trip Attributes (2025)}{table.caption.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in Manhattan (2025).}}{22}{figure.caption.33}\protected@file@percent }
+\newlabel{fig:manhattan_distributions}{{14}{22}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Manhattan (2025)}{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2}Queens}{23}{subsubsection.5.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {22}{\ignorespaces Descriptive Statistics for Queens Trip Attributes (2025)}}{23}{table.caption.34}\protected@file@percent }
+\newlabel{tab:queens_stats}{{22}{23}{Descriptive Statistics for Queens Trip Attributes (2025)}{table.caption.34}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.3}Brooklyn}{23}{subsubsection.5.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {23}{\ignorespaces Descriptive Statistics for Brooklyn Trip Attributes (2025 Sampled Data)}}{23}{table.caption.36}\protected@file@percent }
+\newlabel{tab:brooklyn_stats}{{23}{23}{Descriptive Statistics for Brooklyn Trip Attributes (2025 Sampled Data)}{table.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in Queens (2025).}}{24}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:queens_distributions}{{15}{24}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Queens (2025)}{figure.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in Brooklyn (2025).}}{25}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:brooklyn_distributions}{{16}{25}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Brooklyn (2025)}{figure.caption.37}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.4}Bronx}{25}{subsubsection.5.5.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {24}{\ignorespaces Descriptive Statistics for Bronx Trip Attributes (2025 Sampled Data)}}{26}{table.caption.38}\protected@file@percent }
+\newlabel{tab:bronx_stats}{{24}{26}{Descriptive Statistics for Bronx Trip Attributes (2025 Sampled Data)}{table.caption.38}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.5}Staten Island}{26}{subsubsection.5.5.5}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {25}{\ignorespaces Descriptive Statistics for Staten Island Trip Attributes (2025)}}{26}{table.caption.40}\protected@file@percent }
+\newlabel{tab:statenisland_stats}{{25}{26}{Descriptive Statistics for Staten Island Trip Attributes (2025)}{table.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in the Bronx (2025).}}{27}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:bronx_distributions}{{17}{27}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in the Bronx (2025)}{figure.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in Staten Island (2025).}}{28}{figure.caption.41}\protected@file@percent }
+\newlabel{fig:statenisland_distributions}{{18}{28}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in Staten Island (2025)}{figure.caption.41}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.6}EWR}{28}{subsubsection.5.5.6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {26}{\ignorespaces Descriptive Statistics for EWR Trip Attributes (2025 Sampled Data)}}{29}{table.caption.42}\protected@file@percent }
+\newlabel{tab:ewr_stats}{{26}{29}{Descriptive Statistics for EWR Trip Attributes (2025 Sampled Data)}{table.caption.42}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Summary Implications for Machine Learning Modeling}{29}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Multivariate Correlation and Pairwise Scatter Plot Analysis}{29}{subsection.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.1}Analysis of Cleaned Data}{29}{subsubsection.5.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Distribution plots (Histograms with KDE) and boxplots for key trip variables in EWR (2025 Sampled Data).}}{30}{figure.caption.43}\protected@file@percent }
+\newlabel{fig:ewr_distributions}{{19}{30}{Distribution plots (Histograms with KDE) and boxplots for key trip variables in EWR (2025 Sampled Data)}{figure.caption.43}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Pearson correlation matrix heatmap for trip attributes on the cleaned dataset.}}{31}{figure.caption.44}\protected@file@percent }
+\newlabel{fig:corr_matrix_clean}{{20}{31}{Pearson correlation matrix heatmap for trip attributes on the cleaned dataset}{figure.caption.44}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.7.2}Analysis of Raw Data and the Impact of Outliers}{31}{subsubsection.5.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Research Questions and Track Selection}{31}{section.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Pairwise scatter plot matrix and kernel density estimations for trip attributes on the cleaned dataset.}}{32}{figure.caption.45}\protected@file@percent }
+\newlabel{fig:pairplot_clean}{{21}{32}{Pairwise scatter plot matrix and kernel density estimations for trip attributes on the cleaned dataset}{figure.caption.45}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Pearson correlation matrix heatmap for trip attributes on the raw (unfiltered) dataset, showing severe attenuation due to outliers.}}{33}{figure.caption.46}\protected@file@percent }
+\newlabel{fig:corr_matrix_raw}{{22}{33}{Pearson correlation matrix heatmap for trip attributes on the raw (unfiltered) dataset, showing severe attenuation due to outliers}{figure.caption.46}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Methods}{33}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Aggregation and Problem Formulation}{33}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Pairwise scatter plot matrix for trip attributes on the raw dataset, illustrating axis distortion caused by extreme uncleaned anomalies.}}{34}{figure.caption.47}\protected@file@percent }
+\newlabel{fig:pairplot_raw}{{23}{34}{Pairwise scatter plot matrix for trip attributes on the raw dataset, illustrating axis distortion caused by extreme uncleaned anomalies}{figure.caption.47}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Experimental Design}{35}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Strict Temporal Split}{35}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Evaluation Metrics}{35}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Results}{35}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Data Leakage and Prevention Strategy}{35}{section.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Robustness / Sensitivity / Shift Analysis}{36}{section.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {12}Ethics, Privacy and Governance}{37}{section.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {13}Limitations}{37}{section.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {14}Conclusion}{37}{section.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {15}References}{37}{section.15}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {16}Supplementary Material}{37}{section.16}\protected@file@percent }
+\gdef \@abspage@last{37}
